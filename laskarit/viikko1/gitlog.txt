@@ -1,0 +1,113 @@
+commit d05f2b60a34f6a50b0319a1c0d851e45b3e5e995
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:47:16 2021 +0200
+
+    tehtävässä pyydetyt muutokset
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 286f0840b18bde628e629e7df7ecb7951d0c8f5b
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:43:50 2021 +0200
+
+    hakemiston tiedostoja lisäys
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 6cb491fe7d70ba559061379c1f06469660918f07
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:37:30 2021 +0200
+
+    muutoksia kahteen tiedostoon
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit e5a5af40c6971a68ede04085a340985da7650977
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:33:42 2021 +0200
+
+    tiedoston nimen vaihto
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 9cb133134597ca801817fe2040c0833acce15123
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:32:30 2021 +0200
+
+    toinen.txt poisto
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 0c05ff7035fcc0219f3fee17be6ca8a90bbcc8b9
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:30:40 2021 +0200
+
+    tekstin poisto ja lisäys
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 91d9c98d53447b2c22407468e800f8d5a05327b5
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:28:50 2021 +0200
+
+    tekstin lisäys
+
+ tiedosto.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 27c2cdf425fb3309288e3c89a3b54e2d706d0e33
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:22:09 2021 +0200
+
+    hakemiston lisäys
+
+ stuff/jokintiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6f1207e334c0bc9721a886f0e8fbee8a9c78339f
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:20:12 2021 +0200
+
+    muutoksia tiedostoihin
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 830a0c85456578786816e08a5ab2f18c7dc54259
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:18:54 2021 +0200
+
+    kolmannen lisäys
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 18b0c584d3d4e420584c070bd5c32ea70fad4af2
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:15:19 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 29865f54ea3938e612f6c6b852817d716a501df1
+Author: Jonna Hyypiä <jonna.hyypia@helsinki.fi>
+Date:   Tue Nov 2 10:10:33 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
