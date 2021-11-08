@@ -9,6 +9,7 @@ Käyttäjät voivat tallentaa oman pelaajanimensä ja käyttää niitä myös my
 
 <h2> Käyttöliittymä </h2>
 Sovelluksella on neljä näkymää:
+
 ● Etusivu, josta voi siirtyä uuteen peliin tai pelaajanimen tallennukseen.
 
 ● Pelaajanimen luonti -näkymä
@@ -18,6 +19,7 @@ Sovelluksella on neljä näkymää:
 ● Nopanheiton näkymä, jossa näkyy viisi noppaa, jota heitetään joka kierroksella kolme kertaa per pelaaja.
 
 <h2> Sovelluksen toiminnallisuus </h2>
+
 ● Sovellukseen voidaan lisätä rajoittamaton määrä pelaajanimiä, jotka tallennetaan tietokantaan. Pelaajanimi ei voi olla tyhjä eikä yli 20 merkkiä.
 
 ● Peliin voi osallistua kerralla 2-4 pelaajaa. Mikäli yritetään pelata yhdellä tai ei yhdelläkään pelaajalla, tulee virheilmoitus.
@@ -31,6 +33,7 @@ Sovelluksella on neljä näkymää:
 ● Pelin päätyttyä näytetään ponnahdusikkuna, jossa ilmoitetaan lopputulos ja pelin voittaja. Ikkunasta voidaan aloittaa uusi peli tai sulkea sovellus.
 
 <h2> Ideoita jatkokehitykseen </h2>
+
 ● Voidaan pelata yksinpeliä tietokonetta vastaan.
 
 ● Tietokanta muistaa pelaajanimien aikaisemmat tulokset.
