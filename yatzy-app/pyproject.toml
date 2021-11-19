@@ -5,7 +5,7 @@ description = ""
 authors = ["Jonna Hyypiä <jonna.hyypia@helsinki.fi>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.6"
 invoke = "^1.6.0"
 pygame = "^2.1.0"
 
