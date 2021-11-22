@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import ttk, constants
 from random import randint
 
-
 class PlayView:
     def __init__(self, root):
         self._root = root
@@ -31,7 +30,6 @@ class PlayView:
             self.text.insert(END, str(die) + '\n')
         self.text.pack()
             
-
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         add_button = ttk.Button(master=self._frame, text='Roll dice', command=self.roll_dice)

@@ -22,17 +22,21 @@ Sovelluksella on neljä näkymää:
 
 - Sovellukseen voidaan lisätä rajoittamaton määrä pelaajanimiä, jotka tallennetaan tietokantaan. Pelaajanimi ei voi olla tyhjä eikä yli 20 merkkiä.
 
-- Peliin voi osallistua kerralla 2-4 pelaajaa. Mikäli yritetään pelata yhdellä tai ei yhdelläkään pelaajalla, tulee virheilmoitus.
+- Peliä pelaa yksi pelaaja kerrallaan.
 
-- Jokainen pelaaja heittää vuorollaan viittä noppaa yhteensä kolme kertaa. Pelaaja voi joka heiton jälkeen valita, mitä noppia ei enää heitetä. Pelaaja voi kolmen nopan heiton jälkeen valita, mihin kohtaan pistetaulukkoa haluaa pisteensä laittaa.
+- Pelaaja heittää jokaisella vuorolla viittä noppaa yhteensä kolme kertaa. Pelaaja voi joka heiton jälkeen valita, mitä noppia ei enää heitetä. Pelaaja voi kolmen nopan heiton jälkeen valita, mihin kohtaan pistetaulukkoa haluaa pisteensä laittaa.
 
 - Sovellus laskee pistetaulukkoon automaattisesti 50 pisteen bonuksen, mikäli ykkösten, kakkosten, kolmosten, nelosten, vitosten ja kutosten yhteenlaskettu summa on yli 63 pistettä.
 
 - Pelin päätyttyä sovellus laskee automaattisesti yhteen lopputuloksen.
 
-- Pelin päätyttyä näytetään ponnahdusikkuna, jossa ilmoitetaan lopputulos ja pelin voittaja. Ikkunasta voidaan aloittaa uusi peli tai sulkea sovellus.
+- Pelin päätyttyä näytetään ponnahdusikkuna, jossa ilmoitetaan lopputulos. Ikkunasta voidaan aloittaa uusi peli tai sulkea sovellus.
 
 <h2> Ideoita jatkokehitykseen </h2>
+
+- Peliin voi osallistua kerralla 2-4 pelaajaa. Mikäli yritetään pelata yhdellä tai ei yhdelläkään pelaajalla, tulee virheilmoitus.
+
+- Ilmoitetaan pelin voittaja.
 
 - Voidaan pelata yksinpeliä tietokonetta vastaan.
 
