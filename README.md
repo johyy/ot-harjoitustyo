@@ -7,7 +7,7 @@ Sovelluksen avulla käyttäjän on mahdollista pelata legendaarista Yatzy-peliä
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](./yatzy-app/dokumentaatio/vaatimusmaarittely.md)
-- [Työaikakirjanpto](./yatzy-app/dokumentaatio/tyoaikakirjanpito.md)
+- [Työaikakirjanpto](./yatzy-app/dokumentaatio/tyoaikakirjanpito.png)
 
 ## Asennus
 
