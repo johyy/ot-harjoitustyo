@@ -1,7 +1,7 @@
 <h1> Vaatimusmäärittely </h1>
 
 <h2> Sovelluksen tarkoitus </h2>
-Sovelluksen tehtävänä on toimia vuoropohjaisena pelinä, Yatzyna, jota voi pelata kerralla 2-4 pelaajaa.
+Sovelluksen tehtävänä on toimia vuoropohjaisena pelinä, Yatzyna, jota voi pelata yksin.
 
 <h2> Käyttäjät </h2>
 Sovelluksella on ainoastaan yksi käyttäjärooli, normaali käyttäjä eli pelaaja.

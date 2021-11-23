@@ -35,4 +35,3 @@ class UI:
         self._current_view = PlayersView(self.root, self._handle_play_view)
 
         self._current_view.pack()
-
