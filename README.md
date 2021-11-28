@@ -8,6 +8,7 @@ Sovelluksen avulla käyttäjän on mahdollista pelata legendaarista Yatzy-peliä
 
 - [Vaatimusmäärittely](./yatzy-app/dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpto](./yatzy-app/dokumentaatio/tyoaikakirjanpito.png)
+- [Arkkitehtuuri](./yatzy-app/dokumentaatio/arkkitehtuuri.md
 
 ## Asennus
 
@@ -24,6 +25,12 @@ poetry install
 ```
 
 ### Ohjelman suorittaminen
+
+Ohjelma alustetaan komennolla:
+
+```bash
+poetry run invoke build
+```
 
 Ohjelman suoritus alkaa komennolla:
 
@@ -48,6 +55,14 @@ poetry run invoke coverage
 poetry run invoke coverage-report
 ```
 Raportti löytyy _htmlcov_-hakemistosta.
+
+### Pylint
+
+Pylintin tarkistukset suoritetaan komennolla:
+
+```bash
+poetry run invoke lint
+```
 
 ### Jos käytät yliopiston konetta
 
