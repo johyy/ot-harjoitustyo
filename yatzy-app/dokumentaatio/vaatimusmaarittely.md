@@ -8,23 +8,25 @@ Sovelluksella on ainoastaan yksi käyttäjärooli, normaali käyttäjä eli pela
 Käyttäjät voivat tallentaa oman pelaajanimensä ja käyttää niitä myös myöhemmissä peleissä.
 
 <h2> Käyttöliittymä </h2>
-Sovelluksella on neljä näkymää:
+Sovelluksella on viisi näkymää:
 
-- Etusivu, josta voi siirtyä uuteen peliin tai pelaajanimen tallennukseen.
+- Etusivu, josta voi siirtyä uuteen peliin tai pelaajanimen tallennukseen. <b>Tehty</b>
 
-- Pelaajanimen luonti -näkymä
+- Pelaajanimen luonti -näkymä <b>Tehty</b>
 
-- Pelitilannenäkymä, jossa peli aloitetaan ja käydään läpi. Siinä myös valitaan alussa montako pelaajaa peliin osallistuu.
+- Pelaajanimen valinta -näkymä
 
-- Nopanheiton näkymä, jossa näkyy viisi noppaa, jota heitetään joka kierroksella kolme kertaa per pelaaja.
+- Pelitilannenäkymä, jossa peli aloitetaan ja käydään läpi. 
+
+- Nopanheiton näkymä, jossa näkyy viisi noppaa, jota heitetään joka kierroksella kolme kertaa per pelaaja. <b>Tehty</b>
 
 <h2> Sovelluksen toiminnallisuus </h2>
 
-- Sovellukseen voidaan lisätä rajoittamaton määrä pelaajanimiä, jotka tallennetaan tietokantaan. Pelaajanimi ei voi olla tyhjä eikä yli 20 merkkiä.
+- Sovellukseen voidaan lisätä rajoittamaton määrä pelaajanimiä, jotka tallennetaan tietokantaan. Pelaajanimi ei voi olla tyhjä eikä yli 20 merkkiä. <b>Tehty</b>
 
-- Peliä pelaa yksi pelaaja kerrallaan.
+- Pelaaja heittää jokaisella vuorolla viittä noppaa kaksi kertaa. Pelaaja voi joka heiton jälkeen valita, mitä noppia ei enää heitetä. <b>Tehty</b>
 
-- Pelaaja heittää jokaisella vuorolla viittä noppaa yhteensä kolme kertaa. Pelaaja voi joka heiton jälkeen valita, mitä noppia ei enää heitetä. Pelaaja voi kolmen nopan heiton jälkeen valita, mihin kohtaan pistetaulukkoa haluaa pisteensä laittaa.
+- Pelaaja voi kahden nopan heittokerran jälkeen valita, mihin kohtaan pistetaulukkoa haluaa pisteensä laittaa.
 
 - Sovellus laskee pistetaulukkoon automaattisesti 50 pisteen bonuksen, mikäli ykkösten, kakkosten, kolmosten, nelosten, vitosten ja kutosten yhteenlaskettu summa on yli 63 pistettä.
 
