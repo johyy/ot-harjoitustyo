@@ -1,3 +1,4 @@
 # Työaikakirjanpito
 
-![Tyoaikakirjanpito](.kuvat/tyoaika.png)
+##
+![](./kuvat/tyoaika.png)
