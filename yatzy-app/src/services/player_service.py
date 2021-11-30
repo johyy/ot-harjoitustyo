@@ -32,5 +32,10 @@ class PlayerService:
     def get_current_player(self):
         return self._player
 
+    def get_all_players(self):
+        players = []
+        players = self._player_repository.find_all()
+        return players
+
 
 player_service = PlayerService()

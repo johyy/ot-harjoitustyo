@@ -8,7 +8,7 @@ Sovelluksella on ainoastaan yksi käyttäjärooli, normaali käyttäjä eli pela
 Käyttäjät voivat tallentaa oman pelaajanimensä ja käyttää niitä myös myöhemmissä peleissä.
 
 <h2> Käyttöliittymä </h2>
-Sovelluksella on viisi näkymää:
+Sovelluksella on kuusi näkymää:
 
 - Etusivu, josta voi siirtyä uuteen peliin tai pelaajanimen tallennukseen. <b>Tehty</b>
 
@@ -16,9 +16,11 @@ Sovelluksella on viisi näkymää:
 
 - Pelaajanimen valinta -näkymä
 
-- Pelitilannenäkymä, jossa peli aloitetaan ja käydään läpi. 
+- Pelitilannenäkymä, jossa peli aloitetaan. Pelitilannenäkymässä näkyy nykyinen pelin tilanne. <b>Tehty</b> 
 
-- Nopanheiton näkymä, jossa näkyy viisi noppaa, jota heitetään joka kierroksella kolme kertaa per pelaaja. <b>Tehty</b>
+- Nopanheiton näkymä, jossa näkyy viisi noppaa, jota heitetään joka kierroksella kaksi kertaa. <b>Tehty</b>
+
+- Valintanäkymä, jossa valitaan, mihin nopasta saadut pisteet halutaan käyttää. Pisteet tulevat näkyviin pelitilannenäkymään.
 
 <h2> Sovelluksen toiminnallisuus </h2>
 
@@ -35,6 +37,8 @@ Sovelluksella on viisi näkymää:
 - Pelin päätyttyä näytetään ponnahdusikkuna, jossa ilmoitetaan lopputulos. Ikkunasta voidaan aloittaa uusi peli tai sulkea sovellus.
 
 <h2> Ideoita jatkokehitykseen </h2>
+
+- Kolme nopanheittokierrosta.
 
 - Peliin voi osallistua kerralla 2-4 pelaajaa. Mikäli yritetään pelata yhdellä tai ei yhdelläkään pelaajalla, tulee virheilmoitus.
 

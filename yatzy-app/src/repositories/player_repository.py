@@ -18,7 +18,7 @@ class PlayerRepository:
 
         rows = cursor.fetchall()
 
-        return list(map(get_player_by_row, rows))
+        return list(rows)
 
     def find_by_playername(self, playername):
         cursor = self._connection.cursor()

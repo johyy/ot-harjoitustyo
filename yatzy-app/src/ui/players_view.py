@@ -30,8 +30,10 @@ class PlayersView:
     def add_player(self):
         new_player = self._player_entry.get()
 
-        player_service.create_user(new_player)
-        messagebox.showinfo(new_player, 'Added to the players!')
+        if len(new_player) > 0 and len(new_player) < 21:
+
+            player_service.create_user(new_player)
+            messagebox.showinfo(new_player, 'Added to the players!')
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

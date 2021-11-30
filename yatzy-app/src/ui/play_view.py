@@ -15,10 +15,6 @@ class PlayView:
     def pack(self):
         self.frame.pack(fill=constants.X)
 
-    def clear_frame(self):
-        for widgets in self.frame.winfo_children():
-            widgets.destroy()
-
     def roll_dice(self):
         self.frame.forget()
         rolling_dice = Dice(self._root)

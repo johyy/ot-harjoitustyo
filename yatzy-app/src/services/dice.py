@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import  ttk
+from tkinter import ttk
 from random import randint
+from services.board import Board
 
 
 class Dice:
@@ -13,6 +14,10 @@ class Dice:
         self.roll_again_button = None
         self._frame = None
         self._roll = None
+        self._second_roll = None
+        self.dice_total_button = None
+        self.continue_button = None
+        self.mixed_dice = []
         self.sum = 0
         self.first_dice = []
         self.second_dice = []
@@ -46,6 +51,18 @@ class Dice:
         self.vars2.append(self.var3_2)
         self.vars2.append(self.var4_2)
         self.vars2.append(self.var5_2)
+
+        self._check1 = None
+        self._check2 = None
+        self._check3 = None
+        self._check4 = None
+        self._check5 = None
+
+        self._check21 = None
+        self._check22 = None
+        self._check23 = None
+        self._check24 = None
+        self._check25 = None
 
     def roll_dice(self, dice):
         self._frame = tk.Frame(master=self._root)
@@ -98,8 +115,10 @@ class Dice:
         self.choose_button.grid()
 
     def show_second_dice(self, dice):
-        self._roll.destroy()
-        self.choose_button.destroy
+        if self._roll is not None:
+            self._roll.destroy()
+        elif self.choose_button is not None:
+            self.choose_button.destroy
 
         self._second_roll = tk.Label(
             self._frame, text="Now choose which dice you want to use")
@@ -202,8 +221,9 @@ class Dice:
         self.mixed_dice = []
         for die1 in rolled_dice:
             self.mixed_dice.append(die1)
-        for die2 in self.selected_dice:
-            self.mixed_dice.append(die2)
+        if len(self.selected_dice) > 0:
+            for die2 in self.selected_dice:
+                self.mixed_dice.append(die2)
 
         self.show_second_dice(self.mixed_dice)
 
@@ -216,3 +236,10 @@ class Dice:
         total = tk.Label(
             self._frame, text="Your total sum of dice is " + str(self.sum))
         total.grid()
+        self.continue_button = ttk.Button(
+            self._frame, text='Continue', command=self.go_to_board).grid()
+
+    def go_to_board(self):
+        self._frame.destroy()
+        board = Board(self._root)
+        board.select(self.sum, self.selected_dice2)

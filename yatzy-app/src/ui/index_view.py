@@ -3,9 +3,9 @@ from tkinter import *
 
 
 class IndexView:
-    def __init__(self, root, handle_play_view, handle_players_view):
+    def __init__(self, root, handle_choose_player_view, handle_players_view):
         self._root = root
-        self._handle_play_view = handle_play_view
+        self._handle_choose_player_view = handle_choose_player_view
         self._handle_players_view = handle_players_view
 
         self._root["bg"] = "black"
@@ -19,7 +19,7 @@ class IndexView:
 
     def playbutton(self):
         self.canvas.destroy()
-        self._handle_play_view()
+        self._handle_choose_player_view()
 
     def playersbutton(self):
         self.canvas.destroy()
