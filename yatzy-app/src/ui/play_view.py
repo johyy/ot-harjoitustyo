@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk, constants
-from services.dice import Dice
+from ui.dice_view import DiceView
 from services.player_service import PlayerService
 
 
@@ -17,7 +17,7 @@ class PlayView:
 
     def roll_dice(self):
         self.frame.forget()
-        rolling_dice = Dice(self._root)
+        rolling_dice = DiceView(self._root)
         rolling_dice.roll_dice(self._dice)
 
     def _initialize(self):

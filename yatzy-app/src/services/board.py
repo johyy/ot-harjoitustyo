@@ -1,58 +1,78 @@
 import tkinter as tk
 from tkinter import Listbox, ttk
 
-
 class Board:
-    def __init__(self, root):
-        self._root = root
-        self._frame = None
 
-    def select(self, sum, dice):
-        self._frame = tk.Frame(master=self._root)
-        self._frame.grid()
-        question = tk.Label(
-            self._frame, text="How do you want to use these " + str(sum) + " points?")
+    def check_aces(self, dice_list):
+        if 1 in dice_list:
+            return True
+        
+    def check_twos(self, dice_list):
+        if 2 in dice_list:
+            return True
+        
+    def check_threes(self, dice_list):
+        if 3 in dice_list:
+            return True
+        
+    def check_fours(self, dice_list):
+        if 4 in dice_list:
+            return True
+        
+    def check_fives(self, dice_list):
+        if 5 in dice_list:
+            return True
+        
+    def check_sixes(self, dice_list):
+        if 6 in dice_list:
+            return True
 
-        list = tk.Listbox(self._frame)
-        i = 0
-        while i < len(dice):
-            list.insert(i, str(dice[i]))
-            i += 1
-        list.grid()
-        question.grid()
+    def check_three_kind(self, dice_list):
+        dice_list.sort()
+        if len(dice_list) == 3:
+            if dice_list[0]==dice_list[1] and dice_list[1]==dice_list[2]:
+                return True
+        if len(dice_list) > 3:
+            if dice_list[1]==dice_list[2] and dice_list[2]==dice_list[3]:
+                return True
+        if len(dice_list) > 4 :
+            if dice_list[2]==dice_list[3] and dice_list[3]==dice_list[4]:
+                return True
+    
+    def check_four_kind(self, dice_list):
+        dice_list.sort()
+        if len(dice_list) >= 4:
+            if dice_list[0]==dice_list[1] and dice_list[1]==dice_list[2] and dice_list[2]==dice_list[3]:
+                return True
+            if dice_list[1]==dice_list[2] and dice_list[2]==dice_list[3] and dice_list[3]==dice_list[4]:
+                return True
 
-        if 1 in dice:
-            aces = ttk.Button(
-                self._frame, text='Aces', command=self.aces).grid()
-        if 2 in dice:
-            twos = ttk.Button(
-                self._frame, text='Twos', command=self.twos).grid()
-        if 3 in dice:
-            threes = ttk.Button(
-                self._frame, text='Threes', command=self.threes).grid()
-        if 4 in dice:
-            fours = ttk.Button(
-                self._frame, text='Fours', command=self.fours).grid()
-        if 5 in dice:
-            fives = ttk.Button(
-                self._frame, text='Fives', command=self.fives).grid()
-        if 6 in dice:
-            sixes = ttk.Button(
-                self._frame, text='Sixes', command=self.sixes).grid()
-        three_same = ttk.Button(
-            self._frame, text='3 of a kind', command=self.three_same).grid()
-        four_same = ttk.Button(
-            self._frame, text='4 of a kind', command=self.four_same).grid()
-        full_house = ttk.Button(
-            self._frame, text='Full House', command=self.full_house).grid()
-        small_straight = ttk.Button(
-            self._frame, text='Small Straight', command=self.small_straight).grid()
-        large_straight = ttk.Button(
-            self._frame, text='Large Straight', command=self.large_straight).grid()
-        chance = ttk.Button(
-            self._frame, text='Chance', command=self.chance).grid()
-        yatzy = ttk.Button(
-            self._frame, text='Yatzy', command=self.yatzy).grid()
+    def check_full_house(self, dice_list):
+        dice_list.sort()
+        if len(dice_list) == 5:
+            if dice_list[0]==dice_list[1] and dice_list[1]==dice_list[2]:
+                if dice_list[3] == dice_list[4]:
+                    return True
+            if dice_list[0]==dice_list[1]:
+                if dice_list[2]==dice_list[3] and dice_list[3] == dice_list[4]:
+                    return True
+    
+    def check_small_straight(self, dice_list):
+        if len(dice_list) == 5:
+            dice_list.sort()
+            if dice_list[0]==1 and dice_list[1]==2 and dice_list[2]==3 and dice_list[3]==4 and dice_list[4]==5:
+                return True
+
+    def check_large_straight(self, dice_list):
+        if len(dice_list) == 5:
+            dice_list.sort()
+            if dice_list[0]==2 and dice_list[1]==3 and dice_list[2]==4 and dice_list[3]==5 and dice_list[4]==6:
+                return True
+
+    def check_yatzy(self, dice_list):
+        if len(dice_list) == 5:
+            if dice_list[0]==dice_list[1] and dice_list[1]==dice_list[2] and dice_list[2]==dice_list[3] and dice_list[3]==dice_list[4]:
+                return True
 
     def aces(self):
         pass
