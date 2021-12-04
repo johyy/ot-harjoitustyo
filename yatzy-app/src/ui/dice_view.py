@@ -1,14 +1,14 @@
 from tkinter import *
 from services.dice import Dice
-from ui.board_view import BoardView
-
 
 class DiceView:
-    def __init__(self, root):
+    def __init__(self, root, handle_board_view):
         self._root = root
+        self.handle_board_view = handle_board_view
         self.new_dice = Dice()
         self.round = 1
-      
+        self.dice = [1,1,1,1,1]
+
         self._check = None
         self._final_check = None
         self.choose_button = None
@@ -63,20 +63,23 @@ class DiceView:
         self._check24 = None
         self._check25 = None
 
-    def roll_dice(self, dice):
+        self._initialize()
+
+    def _initialize(self):
         self._frame = Frame(master=self._root)
-        self._frame.grid()    
+        self._frame.grid()
         if self.round == 1:
-            self.show_dice(self.new_dice.roll_dice(dice))
+            self.show_dice(self.new_dice.roll_dice(self.dice))
         elif self.round == 2:
-            self.mix_dice(self.new_dice.roll_dice(dice))
+            self.mix_dice(self.new_dice.roll_dice(self.new_roll_dice))
 
     def roll_again(self):
         self.roll_again_button.destroy()
-        self.roll_dice(self.new_roll_dice)
+        self._initialize()
 
-    def mix_dice(self, rolled_dice):      
-        self.show_second_dice(self.new_dice.mix_dice(rolled_dice, self.selected_dice))
+    def mix_dice(self, rolled_dice):
+        self.show_second_dice(self.new_dice.mix_dice(
+            rolled_dice, self.selected_dice))
 
     def show_dice(self, dice):
         self._roll = Label(
@@ -216,7 +219,7 @@ class DiceView:
         self.dice_total_button.grid()
 
     def go_to_board(self):
-        sum = self.new_dice.dice_total(self.selected_dice2)
-        self._frame.destroy()
-        board = BoardView(self._root)
-        board.select(sum, self.selected_dice2)
+        self.dice_total_button.destroy()
+        new_sum = self.new_dice.dice_total(self.selected_dice2)
+        self.handle_board_view(self.selected_dice2, new_sum)
+        

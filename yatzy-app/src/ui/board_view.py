@@ -2,60 +2,199 @@ from tkinter import *
 from services.board import Board
 
 class BoardView:
-    def __init__(self, root):
+    def __init__(self, root, rolled_dice, sum, handle_play_view):
         self._root = root
+        self.rolled_dice = rolled_dice
+        self.sum = sum
+        self.handle_play_view = handle_play_view
         self._frame = None
+        self.table = None
         self.new_board = Board()
+        self.table = {}
+        self.list = None
+        self.board_list = Listbox(self._frame)
+        self.question = None
 
-    def select(self, sum, dice):
+        self.aces_button = None
+        self.twos_button = None
+        self.threes_button = None
+        self.fours_button = None
+        self.fives_button = None
+        self.sixes_button = None
+        self.pair_button = None
+        self.two_pairs_button = None
+        self.three_same_button = None
+        self.four_same_button = None
+        self.full_house_button = None
+        self.small_straight_button = None
+        self.large_straight_button = None
+        self.chance_button = None
+        self.yatzy_button = None
+
+        self._initialize()
+
+    def _initialize(self):
         self._frame = Frame(master=self._root)
         self._frame.grid()
-        question = Label(
-            self._frame, text="How do you want to use these " + str(sum) + " points?")
+        self.question = Label(
+            self._frame, text="How do you want to use these " + str(self.sum) + " points?")
 
-        list = Listbox(self._frame)
+        self.list = Listbox(self._frame)
         i = 0
-        while i < len(dice):
-            list.insert(i, str(dice[i]))
+        while i < len(self.rolled_dice):
+            self.list.insert(i, str(self.rolled_dice[i]))
             i += 1
-        list.grid()
-        question.grid()
+        self.list.grid()
+        self.question.grid()
 
-        if self.new_board.check_aces(dice):
-            aces = Button(
-                self._frame, text='Aces', command=self.new_board.aces).grid()
-        if self.new_board.check_twos(dice):
-            twos = Button(
-                self._frame, text='Twos', command=self.new_board.twos).grid()
-        if self.new_board.check_threes(dice):
-            threes = Button(
-                self._frame, text='Threes', command=self.new_board.threes).grid()
-        if self.new_board.check_fours(dice):
-            fours = Button(
-                self._frame, text='Fours', command=self.new_board.fours).grid()
-        if self.new_board.check_fives(dice):
-            fives = Button(
-                self._frame, text='Fives', command=self.new_board.fives).grid()
-        if self.new_board.check_sixes(dice):
-            sixes = Button(
-                self._frame, text='Sixes', command=self.new_board.sixes).grid()
-        if self.new_board.check_three_kind(dice):
-            three_same = Button(
-                self._frame, text='3 of a kind', command=self.new_board.three_same).grid()
-        if self.new_board.check_four_kind(dice):
-            four_same = Button(
-                self._frame, text='4 of a kind', command=self.new_board.four_same).grid()
-        if  self.new_board.check_full_house(dice):
-            full_house = Button(
-                self._frame, text='Full House', command=self.new_board.full_house).grid()
-        if self.new_board.check_small_straight(dice):
-            small_straight = Button(
-                self._frame, text='Small Straight', command=self.new_board.small_straight).grid()
-        if self.new_board.check_large_straight(dice):
-            large_straight = Button(
-                self._frame, text='Large Straight', command=self.new_board.large_straight).grid()
-        chance = Button(
-            self._frame, text='Chance', command=self.new_board.chance).grid()
-        if self.new_board.check_yatzy(dice):
-            yatzy = Button(
-                self._frame, text='Yatzy', command=self.new_board.yatzy).grid()
+        if self.new_board.check_aces(self.rolled_dice):
+            self.aces_button = Button(
+                self._frame, text='Aces', command=self.aces, state=NORMAL)
+            self.aces_button.grid()
+        if self.new_board.check_twos(self.rolled_dice):
+            self.twos_button = Button(
+                self._frame, text='Twos', command=self.twos)
+            self.twos_button.grid()
+        if self.new_board.check_threes(self.rolled_dice):
+            self.threes_button = Button(
+                self._frame, text='Threes', command=self.threes)
+            self.threes_button.grid()
+        if self.new_board.check_fours(self.rolled_dice):
+            self.fours_button = Button(
+                self._frame, text='Fours', command=self.fours)
+            self.fours_button.grid()
+        if self.new_board.check_fives(self.rolled_dice):
+            self.fives_button = Button(
+                self._frame, text='Fives', command=self.fives)
+            self.fives_button.grid()
+        if self.new_board.check_sixes(self.rolled_dice):
+            self.sixes_button = Button(
+                self._frame, text='Sixes', command=self.sixes)
+            self.sixes_button.grid()
+        if self.new_board.check_pair(self.rolled_dice):
+            self.pair_button = Button(
+                self._frame, text='Pair', command=self.pair)
+            self.pair_button.grid()
+        if self.new_board.check_two_pairs(self.rolled_dice):
+            self.two_pairs_button = Button(
+                self._frame, text='Two pairs', command=self.two_pairs)
+            self.two_pairs_button.grid()
+        if self.new_board.check_three_kind(self.rolled_dice):
+            self.three_same_button = Button(
+                self._frame, text='3 of a kind', command=self.three_same)
+            self.three_same_button.grid()
+        if self.new_board.check_four_kind(self.rolled_dice):
+            self.four_same_button = Button(
+                self._frame, text='4 of a kind', command=self.four_same)
+            self.four_same_button.grid()
+        if self.new_board.check_full_house(self.rolled_dice):
+            self.full_house_button = Button(
+                self._frame, text='Full House', command=self.full_house)
+            self.full_house_button.grid()
+        if self.new_board.check_small_straight(self.rolled_dice):
+            self.small_straight_button = Button(
+                self._frame, text='Small Straight', command=self.small_straight)
+            self.small_straight_button.grid()
+        if self.new_board.check_large_straight(self.rolled_dice):
+            self.large_straight_button = Button(
+                self._frame, text='Large Straight', command=self.large_straight)
+            self.large_straight_button.grid()
+        self.chance_button = Button(
+            self._frame, text='Chance', command=self.chance)
+        self.chance_button.grid()
+        if self.new_board.check_yatzy(self.rolled_dice):
+            self.yatzy_button = Button(
+                self._frame, text='Yatzy', command=self.yatzy)
+            self.yatzy_button.grid()
+    
+    def aces(self):
+        self.table["Aces"] = self.new_board.aces(self.rolled_dice)
+        self.show_table()
+
+    def twos(self):
+        pass
+
+    def threes(self):
+        pass
+
+    def fours(self):
+        pass
+
+    def fives(self):
+        pass
+
+    def sixes(self):
+        pass
+
+    def pair(self):
+        pass
+
+    def two_pairs(self):
+        pass
+
+    def three_same(self):
+        pass
+    
+    def four_same(self):
+        pass
+
+    def full_house(self):
+        pass
+
+    def small_straight(self):
+        pass
+
+    def large_straight(self):
+        pass
+
+    def chance(self):
+        pass
+
+    def yatzy(self):
+        pass
+
+    def show_table(self):
+        self.list.destroy()
+        self.question.destroy()
+        
+        if self.aces_button != None:
+            self.aces_button.destroy()
+        if self.twos_button != None:
+            self.twos_button.destroy()
+        if self.threes_button != None:
+            self.threes_button.destroy()
+        if self.fours_button != None:
+            self.fours_button.destroy()
+        if self.fives_button != None:
+            self.fives_button.destroy()
+        if self.sixes_button != None:
+            self.sixes_button.destroy()
+        if self.pair_button != None:
+            self.pair_button.destroy()
+        if self.two_pairs_button != None:
+            self.two_pairs_button.destroy()
+        if self.three_same_button != None:
+            self.three_same_button.destroy()
+        if self.four_same_button!= None:
+            self.four_same_button.destroy()
+        if self.full_house_button != None:
+            self.full_house_button.destroy()
+        if self.small_straight_button != None:
+            self.small_straight_button.destroy()
+        if self.large_straight_button != None:
+            self.large_straight_button.destroy()
+        if self.chance_button != None:
+            self.chance_button.destroy()
+        if self.yatzy_button != None:
+            self.yatzy_button.destroy()
+
+        for score in self.table:
+            self.board_list.insert(END, '{}: {}'.format(score, self.table[score]))
+        self.board_list.grid()
+        self._frame.destroy()
+        roll_dice = Button(self._frame, text='CONTINUE ROLLING DICE', command=self.roll_dice())
+        roll_dice.grid()
+    
+    def roll_dice(self):
+        self._frame.forget()
+        self.handle_play_view()

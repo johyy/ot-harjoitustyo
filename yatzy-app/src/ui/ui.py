@@ -2,6 +2,8 @@ from ui.index_view import IndexView
 from ui.play_view import PlayView
 from ui.players_view import PlayersView
 from ui.choose_player import ChoosePlayerView
+from ui.board_view import BoardView
+from ui.dice_view import DiceView
 
 
 class UI:
@@ -24,6 +26,21 @@ class UI:
 
     def _handle_choose_player_view(self):
         self.show_choose_player_view()
+    
+    def _handle_board_view(self, dice, sum):
+        self.show_board_view(dice, sum)
+
+    def _handle_dice_view(self):
+        self.show_dice_view()
+
+    def show_dice_view(self):
+        self.hide_current_view()
+        self._current_view = DiceView(self.root, self._handle_board_view)
+    
+    def show_board_view(self, dice, sum):
+        self.hide_current_view()
+        self._current_view = BoardView(
+            self.root, dice, sum, self._handle_play_view)
 
     def show_index_view(self):
         self.hide_current_view()
@@ -32,18 +49,13 @@ class UI:
 
     def show_play_view(self):
         self.hide_current_view()
-        self._current_view = PlayView(self.root)
-        self._current_view.pack()
+        self._current_view = PlayView(self.root, self._handle_dice_view)
 
     def show_players_view(self):
         self.hide_current_view()
         self._current_view = PlayersView(self.root, self._handle_play_view)
 
-        self._current_view.pack()
-
     def show_choose_player_view(self):
         self.hide_current_view()
         self._current_view = ChoosePlayerView(
             self.root, self._handle_play_view)
-
-        self._current_view.pack()

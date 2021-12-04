@@ -23,6 +23,7 @@ class ChoosePlayerView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid()
         play_button = ttk.Button(
             master=self._frame, text='Play!', command=self.playbutton)
 
