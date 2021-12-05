@@ -1,5 +1,6 @@
 from tkinter import *
 
+
 class PlayView:
     def __init__(self, root, handle_dice_view):
         self._root = root

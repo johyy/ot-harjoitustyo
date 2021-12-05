@@ -78,20 +78,6 @@ class TestBoard(unittest.TestCase):
     def test_check_sixes_with_no_sixes(self):
         self.assertFalse(self.new_board.check_sixes(self.dice))
 
-    def test_check_pair_with_pair(self):
-        dice = [1, 1, 2, 3, 4]
-        self.assertTrue(self.new_board.check_pair(dice))
-
-    def test_check_pair_with_no_pair(self):
-        self.assertFalse(self.new_board.check_pair(self.dice))
-
-    def test_check_two_pairs_with_pairs(self):
-        dice = [1, 1, 2, 2, 3]
-        self.assertTrue(self.new_board.check_two_pairs(dice))
-
-    def test_check_two_pairs_with_no_pairs(self):
-        self.assertFalse(self.new_board.check_two_pairs(self.dice))
-
     def test_check_three_kind_with_three_same(self):
         dice = [1, 1, 1, 2, 3]
         self.assertTrue(self.new_board.check_three_kind(dice))

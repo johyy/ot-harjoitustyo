@@ -1,5 +1,6 @@
 from random import randint
 
+
 class Dice:
 
     def roll_dice(self, dice):

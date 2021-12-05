@@ -1,13 +1,14 @@
 from tkinter import *
 from services.dice import Dice
 
+
 class DiceView:
     def __init__(self, root, handle_board_view):
         self._root = root
         self.handle_board_view = handle_board_view
         self.new_dice = Dice()
         self.round = 1
-        self.dice = [1,1,1,1,1]
+        self.dice = [1, 1, 1, 1, 1]
 
         self._check = None
         self._final_check = None
@@ -66,8 +67,9 @@ class DiceView:
         self._initialize()
 
     def _initialize(self):
-        self._frame = Frame(master=self._root)
-        self._frame.grid()
+        if self._frame == None:
+            self._frame = Frame(master=self._root)
+            self._frame.grid()
         if self.round == 1:
             self.show_dice(self.new_dice.roll_dice(self.dice))
         elif self.round == 2:
@@ -116,10 +118,10 @@ class DiceView:
         self.choose_button.grid()
 
     def show_second_dice(self, dice):
-        if self._roll is not None:
+        if self._roll != None:
             self._roll.destroy()
-        elif self.choose_button is not None:
-            self.choose_button.destroy
+        elif self.choose_button != None:
+            self.choose_button.destroy()
 
         self._second_roll = Label(
             self._frame, text="Now choose which dice you want to use")
@@ -219,7 +221,7 @@ class DiceView:
         self.dice_total_button.grid()
 
     def go_to_board(self):
+        self._frame.destroy()
         self.dice_total_button.destroy()
         new_sum = self.new_dice.dice_total(self.selected_dice2)
         self.handle_board_view(self.selected_dice2, new_sum)
-        

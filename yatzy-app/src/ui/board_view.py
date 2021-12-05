@@ -1,19 +1,19 @@
 from tkinter import *
 from services.board import Board
 
+
 class BoardView:
-    def __init__(self, root, rolled_dice, sum, handle_play_view):
+    def __init__(self, root, rolled_dice, sum, handle_play_view,):
         self._root = root
         self.rolled_dice = rolled_dice
         self.sum = sum
         self.handle_play_view = handle_play_view
         self._frame = None
-        self.table = None
         self.new_board = Board()
-        self.table = {}
         self.list = None
         self.board_list = Listbox(self._frame)
         self.question = None
+        self.continue_button = None
 
         self.aces_button = None
         self.twos_button = None
@@ -21,8 +21,6 @@ class BoardView:
         self.fours_button = None
         self.fives_button = None
         self.sixes_button = None
-        self.pair_button = None
-        self.two_pairs_button = None
         self.three_same_button = None
         self.four_same_button = None
         self.full_house_button = None
@@ -49,7 +47,7 @@ class BoardView:
 
         if self.new_board.check_aces(self.rolled_dice):
             self.aces_button = Button(
-                self._frame, text='Aces', command=self.aces, state=NORMAL)
+                self._frame, text='Aces', command=self.aces)
             self.aces_button.grid()
         if self.new_board.check_twos(self.rolled_dice):
             self.twos_button = Button(
@@ -71,14 +69,6 @@ class BoardView:
             self.sixes_button = Button(
                 self._frame, text='Sixes', command=self.sixes)
             self.sixes_button.grid()
-        if self.new_board.check_pair(self.rolled_dice):
-            self.pair_button = Button(
-                self._frame, text='Pair', command=self.pair)
-            self.pair_button.grid()
-        if self.new_board.check_two_pairs(self.rolled_dice):
-            self.two_pairs_button = Button(
-                self._frame, text='Two pairs', command=self.two_pairs)
-            self.two_pairs_button.grid()
         if self.new_board.check_three_kind(self.rolled_dice):
             self.three_same_button = Button(
                 self._frame, text='3 of a kind', command=self.three_same)
@@ -106,57 +96,63 @@ class BoardView:
             self.yatzy_button = Button(
                 self._frame, text='Yatzy', command=self.yatzy)
             self.yatzy_button.grid()
-    
+
     def aces(self):
-        self.table["Aces"] = self.new_board.aces(self.rolled_dice)
+        self.new_board.mark_aces(self.rolled_dice)
         self.show_table()
 
     def twos(self):
-        pass
+        self.new_board.mark_twos(self.rolled_dice)
+        self.show_table()
 
     def threes(self):
-        pass
+        self.new_board.mark_threes(self.rolled_dice)
+        self.show_table()
 
     def fours(self):
-        pass
+        self.new_board.mark_fours(self.rolled_dice)
+        self.show_table()
 
     def fives(self):
-        pass
+        self.new_board.mark_fives(self.rolled_dice)
+        self.show_table()
 
     def sixes(self):
-        pass
-
-    def pair(self):
-        pass
-
-    def two_pairs(self):
-        pass
+        self.new_board.mark_sixes(self.rolled_dice)
+        self.show_table()
 
     def three_same(self):
-        pass
-    
+        self.new_board.mark_three_same(self.rolled_dice)
+        self.show_table()
+
     def four_same(self):
-        pass
+        self.new_board.mark_four_same(self.rolled_dice)
+        self.show_table()
 
     def full_house(self):
-        pass
+        self.new_board.mark_full_house(self.sum)
+        self.show_table()
 
     def small_straight(self):
-        pass
+        self.new_board.mark_small_straight()
+        self.show_table()
 
     def large_straight(self):
-        pass
+        self.new_board.mark_large_straight()
+        self.show_table()
 
     def chance(self):
-        pass
+        self.new_board.mark_chance(self.sum)
+        self.show_table()
 
     def yatzy(self):
-        pass
+        self.new_board.mark_yatzy(self.sum)
+        self.show_table()
 
     def show_table(self):
         self.list.destroy()
         self.question.destroy()
-        
+
         if self.aces_button != None:
             self.aces_button.destroy()
         if self.twos_button != None:
@@ -169,13 +165,9 @@ class BoardView:
             self.fives_button.destroy()
         if self.sixes_button != None:
             self.sixes_button.destroy()
-        if self.pair_button != None:
-            self.pair_button.destroy()
-        if self.two_pairs_button != None:
-            self.two_pairs_button.destroy()
         if self.three_same_button != None:
             self.three_same_button.destroy()
-        if self.four_same_button!= None:
+        if self.four_same_button != None:
             self.four_same_button.destroy()
         if self.full_house_button != None:
             self.full_house_button.destroy()
@@ -188,13 +180,17 @@ class BoardView:
         if self.yatzy_button != None:
             self.yatzy_button.destroy()
 
-        for score in self.table:
-            self.board_list.insert(END, '{}: {}'.format(score, self.table[score]))
+        table = self.new_board.get_table()
+
+        for score in table:
+            self.board_list.insert(
+                END, '{}: {}'.format(score, table[score]))
         self.board_list.grid()
-        self._frame.destroy()
-        roll_dice = Button(self._frame, text='CONTINUE ROLLING DICE', command=self.roll_dice())
-        roll_dice.grid()
-    
+        self.continue_button = Button(
+            self._frame, text='Continue', command=self.roll_dice)
+        self.continue_button.grid()
+
     def roll_dice(self):
-        self._frame.forget()
+        self.board_list.destroy()
+        self._frame.destroy()
         self.handle_play_view()
