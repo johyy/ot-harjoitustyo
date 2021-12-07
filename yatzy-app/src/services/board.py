@@ -148,25 +148,25 @@ class Board:
         if len(dice_list) == 3:
             for die in dice_list:
                 new_list.append(die)
-        if len(dice_list) > 3:
+        if len(dice_list) == 4:
             if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2]:
                 new_list.append(dice_list[0])
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
-            if dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3]:
+            elif dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3]:
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
                 new_list.append(dice_list[3])
-        if len(dice_list) > 4:
+        if len(dice_list) == 5:
             if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2]:
                 new_list.append(dice_list[0])
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
-            if dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3]:
+            elif dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3]:
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
                 new_list.append(dice_list[3])
-            if dice_list[2] == dice_list[3] and dice_list[3] == dice_list[4]:
+            elif dice_list[2] == dice_list[3] and dice_list[3] == dice_list[4]:
                 new_list.append(dice_list[2])
                 new_list.append(dice_list[3])
                 new_list.append(dice_list[4])
@@ -187,7 +187,7 @@ class Board:
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
                 new_list.append(dice_list[3])
-            if dice_list[3] == dice_list[4]:
+            elif dice_list[3] == dice_list[4]:
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
                 new_list.append(dice_list[3])
@@ -232,8 +232,8 @@ class Board:
     def mark_chance(self, new_sum):
         self.table["Chance"] = new_sum
 
-    def mark_yatzy(self, new_sum):
-        self.table["Yatzy"] = new_sum
+    def mark_yatzy(self):
+        self.table["Yatzy"] = 50
 
     def get_table(self):
         return self.table

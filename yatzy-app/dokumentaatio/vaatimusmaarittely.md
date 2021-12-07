@@ -20,7 +20,7 @@ Sovelluksella on kuusi näkymää:
 
 - Nopanheiton näkymä, jossa näkyy viisi noppaa, jota heitetään joka kierroksella kaksi kertaa. <b>Tehty</b>
 
-- Valintanäkymä, jossa valitaan, mihin nopasta saadut pisteet halutaan käyttää. Pisteet tulevat näkyviin pelitilannenäkymään.
+- Valintanäkymä, jossa valitaan, mihin nopasta saadut pisteet halutaan käyttää. Pisteet tulevat näkyviin pelitilannenäkymään. <b>Tehty</b>
 
 <h2> Sovelluksen toiminnallisuus </h2>
 
@@ -28,7 +28,7 @@ Sovelluksella on kuusi näkymää:
 
 - Pelaaja heittää jokaisella vuorolla viittä noppaa kaksi kertaa. Pelaaja voi joka heiton jälkeen valita, mitä noppia ei enää heitetä. <b>Tehty</b>
 
-- Pelaaja voi kahden nopan heittokerran jälkeen valita, mihin kohtaan pistetaulukkoa haluaa pisteensä laittaa.
+- Pelaaja voi kahden nopan heittokerran jälkeen valita, mihin kohtaan pistetaulukkoa haluaa pisteensä laittaa. <b>Tehty</b>
 
 - Sovellus laskee pistetaulukkoon automaattisesti 50 pisteen bonuksen, mikäli ykkösten, kakkosten, kolmosten, nelosten, vitosten ja kutosten yhteenlaskettu summa on yli 63 pistettä.
 
@@ -50,4 +50,4 @@ Sovelluksella on kuusi näkymää:
 
 - Liitetään nopanheittoon grafiikka.
 
-- Sovellus ehdottaa automaattisesti, että mitä kohtia pistetaulukosta voi valita heitetyillä nopilla, ja paljonko niistä saa pisteitä. 
+- Sovellus ehdottaa automaattisesti, että mitä kohtia pistetaulukosta voi valita heitetyillä nopilla, ja paljonko niistä saa pisteitä. <b>Tehty</b> 

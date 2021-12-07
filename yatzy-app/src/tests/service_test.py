@@ -1,4 +1,3 @@
-from tkinter import Tk
 import unittest
 from services.dice import Dice
 from services.board import Board
@@ -119,3 +118,34 @@ class TestBoard(unittest.TestCase):
 
     def test_check_yatzy_with_no_yatzy(self):
         self.assertFalse(self.new_board.check_yatzy(self.dice))
+
+    def test_aces_with_one_ace(self):
+        self.assertEqual(self.new_board.aces(self.dice), 1)
+
+    def test_twos_with_one_two(self):
+        self.assertEqual(self.new_board.twos(self.dice), 2)
+
+    def test_threes_with_one_three(self):
+        self.assertEqual(self.new_board.threes(self.dice), 3)
+
+    def test_fours_with_one_four(self):
+        self.assertEqual(self.new_board.fours(self.dice), 4)
+
+    def test_fives_with_one_five(self):
+        self.assertEqual(self.new_board.fives(self.dice), 5)
+
+    def test_sixes_with_one_six(self):
+        dice = [2, 3, 4, 5, 6]
+        self.assertEqual(self.new_board.sixes(dice), 6)
+
+    def test_three_same_with_three_dice(self):
+        dice = [1, 1, 1]
+        self.assertEqual(self.new_board.three_same(dice), 3)
+
+    def test_three_same_with_four_dice(self):
+        dice = [1, 1, 1, 1]
+        self.assertEqual(self.new_board.three_same(dice), 3)
+
+    def test_three_same_with_five_dice(self):
+        dice = [1, 1, 1, 1, 1]
+        self.assertEqual(self.new_board.three_same(dice), 3)

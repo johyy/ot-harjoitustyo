@@ -10,8 +10,6 @@ class UI:
     def __init__(self, root):
         self.root = root
         self._current_view = None
-        self.table = {"Aces": 0, "Twos": 0, "Threes": 0, "Fours": 0, "Fives": 0, "Sixes": 0, "Bonus": 0, "Three of a kind": 0,
-                      "Four of a kind": 0, "Full house": 0, "Small straight": 0, "Large straight": 0, "Chance": 0, "Yatzy": 0}
 
     def start(self):
         self.show_index_view()

@@ -4,11 +4,11 @@ from random import randint
 class Dice:
 
     def roll_dice(self, dice):
-        new_dice = []
+        rolled_dice = []
         for die in dice:
             die = randint(1, 6)
-            new_dice.append(die)
-        return new_dice
+            rolled_dice.append(die)
+        return rolled_dice
 
     def mix_dice(self, dice, selected_dice):
         mixed_dice = []

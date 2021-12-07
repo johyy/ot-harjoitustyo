@@ -146,7 +146,7 @@ class BoardView:
         self.show_table()
 
     def yatzy(self):
-        self.new_board.mark_yatzy(self.sum)
+        self.new_board.mark_yatzy()
         self.show_table()
 
     def show_table(self):
