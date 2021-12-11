@@ -30,7 +30,6 @@ class IndexView:
 
         yatzypic = PhotoImage(file="src/pictures/yatzypic.png")
         play = PhotoImage(file="src/pictures/play.png")
-        players = PhotoImage(file="src/pictures/players.png")
 
         yatzy_button = ttk.Button(
             self._frame, image=yatzypic, command=self.yatzybutton)
@@ -38,8 +37,5 @@ class IndexView:
         play_button = ttk.Button(
             self._frame, image=play, command=self.playbutton)
         play_button.grid(row=2, column=2)
-        players_button = ttk.Button(
-            self._frame, image=players, command=self.playersbutton)
-        players_button.grid(row=3, column=2)
 
         self._root.mainloop()

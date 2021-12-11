@@ -1,5 +1,5 @@
-from connect_database import get_database_connection
 from entities.player import Player
+from connect_database import get_database_connection
 
 
 def get_player_by_row(row):
@@ -18,7 +18,7 @@ class PlayerRepository:
 
         rows = cursor.fetchall()
 
-        return list(rows)
+        return list(map(get_player_by_row, rows))
 
     def find_by_playername(self, playername):
         cursor = self._connection.cursor()

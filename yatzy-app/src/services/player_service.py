@@ -1,3 +1,4 @@
+from sqlite3.dbapi2 import Error
 from entities.player import Player
 from repositories.player_repository import (
     player_repository as default_player_repository)
@@ -13,11 +14,11 @@ class PlayerService:
             playername)
 
         if existing_player:
-            pass
+            raise Error('Player name already in use')
 
-        player = self._player_repository.create(Player(playername))
+        self._player = self._player_repository.create(Player(playername))
 
-        return player
+        return self._player
 
     def in_use(self, playername):
         player = self._player_repository.find_by_playername(playername)
@@ -33,9 +34,7 @@ class PlayerService:
         return self._player
 
     def get_all_players(self):
-        players = []
-        players = self._player_repository.find_all()
-        return players
+        return self._player_repository.find_all()
 
 
 player_service = PlayerService()

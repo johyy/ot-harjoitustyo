@@ -1,6 +1,9 @@
+from tkinter import messagebox
+
+
 class Board:
 
-    table = {"Aces": '-', "Twos": '-', "Threes": '-', "Fours": '-', "Fives": '-', "Sixes": '-', "Bonus": '-', "Three of a kind": '-',
+    table = {"Aces": '-', "Twos": '-', "Threes": '-', "Fours": '-', "Fives": '-', "Sixes": '-', "Bonus": '0', "Three of a kind": '-',
              "Four of a kind": '-', "Full house": '-', "Small straight": '-', "Large straight": '-', "Chance": '-', "Yatzy": '-'}
 
     def check_aces(self, dice_list):
@@ -47,7 +50,10 @@ class Board:
 
     def check_four_kind(self, dice_list):
         dice_list.sort()
-        if len(dice_list) >= 4:
+        if len(dice_list) == 4:
+            if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3]:
+                return True
+        if len(dice_list) == 5:
             if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3]:
                 return True
             if dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3] and dice_list[3] == dice_list[4]:
@@ -197,43 +203,101 @@ class Board:
         return new_sum
 
     def mark_aces(self, dice):
-        self.table["Aces"] = self.aces(dice)
+        if self.table["Aces"] == "-":
+            self.table["Aces"] = self.aces(dice)
+
+        else:
+            return False
 
     def mark_twos(self, dice):
-        self.table["Twos"] = self.twos(dice)
+        if self.table["Twos"] == "-":
+            self.table["Twos"] = self.twos(dice)
+            self.check_if_full()
+        else:
+            return False
 
     def mark_threes(self, dice):
-        self.table["Threes"] = self.threes(dice)
+        if self.table["Threes"] == "-":
+            self.table["Threes"] = self.threes(dice)
+            self.check_if_full()
+        else:
+            return False
 
     def mark_fours(self, dice):
-        self.table["Fours"] = self.fours(dice)
+        if self.table["Fours"] == "-":
+            self.table["Fours"] = self.fours(dice)
+            self.check_if_full()
+        else:
+            return False
 
     def mark_fives(self, dice):
-        self.table["Fives"] = self.fives(dice)
+        if self.table["Fives"] == "-":
+            self.table["Fives"] = self.fives(dice)
+            self.check_if_full()
+        else:
+            return False
 
     def mark_sixes(self, dice):
-        self.table["Sixes"] = self.sixes(dice)
+        if self.table["Sixes"] == "-":
+            self.table["Sixes"] = self.sixes(dice)
+            self.check_if_full()
+        else:
+            return False
 
     def mark_three_same(self, dice):
-        self.table["Three of a kind"] = self.three_same(dice)
+        if self.table["Three of a kind"] == "-":
+            self.table["Three of a kind"] = self.three_same(dice)
+            self.check_if_full()
+        else:
+            return False
 
     def mark_four_same(self, dice):
-        self.table["Four of a kind"] = self.four_same(dice)
+        if self.table["Four of a kind"] == "-":
+            self.table["Four of a kind"] = self.four_same(dice)
+            self.check_if_full()
+        else:
+            return False
 
     def mark_full_house(self, new_sum):
-        self.table["Full house"] = new_sum
+        if self.table["Full house"] == "-":
+            self.table["Full house"] = new_sum
+            self.check_if_full()
+        else:
+            return False
 
-    def mark_small_straight(self):
-        self.table["Small straight"] = 15
+    def mark_small_straight(self, num):
+        if self.table["Small straight"] == "-":
+            self.table["Small straight"] = num
+            self.check_if_full()
+        else:
+            return False
 
-    def mark_large_straight(self):
-        self.table["Large straight"] = 20
+    def mark_large_straight(self, num):
+        if self.table["Large straight"] == "-":
+            self.table["Large straight"] = num
+            self.check_if_full()
+        else:
+            return False
 
     def mark_chance(self, new_sum):
-        self.table["Chance"] = new_sum
+        if self.table["Chance"] == "-":
+            self.table["Chance"] = new_sum
+            self.check_if_full()
+        else:
+            return False
 
-    def mark_yatzy(self):
-        self.table["Yatzy"] = 50
+    def mark_yatzy(self, num):
+        if self.table["Yatzy"] == "-":
+            self.table["Yatzy"] = num
+            self.check_if_full()
+        else:
+            return False
 
     def get_table(self):
         return self.table
+
+    def check_if_full(self):
+        for number in self.table:
+            if self.table[number] == "-":
+                return False
+        return True

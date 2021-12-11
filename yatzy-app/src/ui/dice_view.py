@@ -3,9 +3,10 @@ from services.dice import Dice
 
 
 class DiceView:
-    def __init__(self, root, handle_board_view):
+    def __init__(self, root, playername, handle_board_view):
         self._root = root
         self.handle_board_view = handle_board_view
+        self.playername = playername
         self.new_dice = Dice()
         self.round = 1
         self.dice = [1, 1, 1, 1, 1]
@@ -224,4 +225,4 @@ class DiceView:
         self._frame.destroy()
         self.dice_total_button.destroy()
         new_sum = self.new_dice.dice_total(self.selected_dice2)
-        self.handle_board_view(self.selected_dice2, new_sum)
+        self.handle_board_view(self.playername, self.selected_dice2, new_sum)

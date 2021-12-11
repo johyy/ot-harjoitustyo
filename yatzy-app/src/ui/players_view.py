@@ -4,17 +4,17 @@ from services.player_service import player_service
 
 
 class PlayersView:
-    def __init__(self, root, handle_play_view):
+    def __init__(self, root, handle_choose_player_view):
         self._root = root
-        self._handle_play_view = handle_play_view
+        self._handle_choose_player_view = handle_choose_player_view
         self._frame = None
         self._player_entry = None
 
         self._initialize()
 
-    def playbutton(self):
+    def choose_player_button(self):
         self._frame.destroy()
-        self._handle_play_view()
+        self._handle_choose_player_view()
 
     def _initialize_player_field(self):
         player_label = ttk.Label(
@@ -41,6 +41,6 @@ class PlayersView:
         add_button = ttk.Button(
             master=self._frame, text='Add a player', command=self.add_player)
         add_button.grid()
-        play_button = ttk.Button(
-            master=self._frame, text='Play!', command=self.playbutton)
-        play_button.grid()
+        player_button = ttk.Button(
+            master=self._frame, text='Return', command=self.choose_player_button)
+        player_button.grid()
