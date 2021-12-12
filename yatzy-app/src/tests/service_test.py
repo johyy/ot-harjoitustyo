@@ -78,11 +78,23 @@ class TestBoard(unittest.TestCase):
         self.assertFalse(self.new_board.check_sixes(self.dice))
 
     def test_check_three_kind_with_three_same(self):
-        dice = [1, 1, 1, 2, 3]
+        dice = [3, 1, 1, 1, 3]
         self.assertTrue(self.new_board.check_three_kind(dice))
 
     def test_check_three_kind_with_no_three_same(self):
         self.assertFalse(self.new_board.check_three_kind(self.dice))
+    
+    def test_check_three_kind_with_three_dice(self):
+        dice = [1, 1, 1]
+        self.assertTrue(self.new_board.check_three_kind(dice))
+    
+    def test_check_three_kind_with_four_dice(self):
+        dice = [2, 1, 1, 1]
+        self.assertTrue(self.new_board.check_three_kind(dice))
+    
+    def test_check_three_kind_with_three_dice_no_same(self):
+        dice = [1, 2, 3]
+        self.assertFalse(self.new_board.check_three_kind(dice))
 
     def test_check_four_kind_with_four_same(self):
         dice = [1, 1, 1, 1, 3]
@@ -98,11 +110,19 @@ class TestBoard(unittest.TestCase):
     def test_check_full_house_with_no_full_house(self):
         self.assertFalse(self.new_board.check_full_house(self.dice))
 
+    def test_check_full_house_with_no_dice(self):
+        dice = []
+        self.assertFalse(self.new_board.check_full_house(dice))
+
     def test_check_small_straight_with_small_straight(self):
         self.assertTrue(self.new_board.check_small_straight(self.dice))
 
     def test_check_small_straight_with_no_small_straight(self):
         dice = [1, 1, 2, 3, 4]
+        self.assertFalse(self.new_board.check_small_straight(dice))
+    
+    def test_check_small_straight_with_no_dice(self):
+        dice = []
         self.assertFalse(self.new_board.check_small_straight(dice))
 
     def test_check_large_straight_with_large_straight(self):
@@ -111,6 +131,10 @@ class TestBoard(unittest.TestCase):
 
     def test_check_large_straight_with_no_large_straight(self):
         self.assertFalse(self.new_board.check_large_straight(self.dice))
+    
+    def test_check_large_straight_with_no_dice(self):
+        dice = []
+        self.assertFalse(self.new_board.check_large_straight(dice))
 
     def test_check_yatzy_with_yatzy(self):
         dice = [1, 1, 1, 1, 1]
@@ -118,6 +142,10 @@ class TestBoard(unittest.TestCase):
 
     def test_check_yatzy_with_no_yatzy(self):
         self.assertFalse(self.new_board.check_yatzy(self.dice))
+    
+    def test_check_yatzy_with_no_dice(self):
+        dice = []
+        self.assertFalse(self.new_board.check_yatzy(dice))
 
     def test_aces_with_one_ace(self):
         self.assertEqual(self.new_board.aces(self.dice), 1)
@@ -145,7 +173,40 @@ class TestBoard(unittest.TestCase):
     def test_three_same_with_four_dice(self):
         dice = [1, 1, 1, 1]
         self.assertEqual(self.new_board.three_same(dice), 3)
+    
+    def test_three_same_with_four_different_dice(self):
+        dice = [1, 2, 2, 2]
+        self.assertEqual(self.new_board.three_same(dice), 6)
 
     def test_three_same_with_five_dice(self):
-        dice = [1, 1, 1, 1, 1]
+        dice = [1, 1, 1, 2, 2]
         self.assertEqual(self.new_board.three_same(dice), 3)
+    
+    def test_three_same_with_five_dice_different_order(self):
+        dice = [1, 3, 3, 3, 4]
+        self.assertEqual(self.new_board.three_same(dice), 9)
+    
+    def test_three_same_with_five_different_dice(self):
+        dice = [2, 2, 3, 3, 3]
+        self.assertEqual(self.new_board.three_same(dice), 9)
+    
+    def test_three_same_with_no_dice(self):
+        dice = []
+        self.assertEqual(self.new_board.three_same(dice), 0)
+
+    def test_four_same_with_four_dice(self):
+        dice = [1, 1, 1, 1]
+        self.assertEqual(self.new_board.four_same(dice), 4)
+    
+    def test_four_same_with_five_dice(self):
+        dice = [1, 1, 1, 1, 1]
+        self.assertEqual(self.new_board.four_same(dice), 4)
+    
+    def test_four_same_with_five_different_dice(self):
+        dice = [2, 2, 2, 2, 1]
+        self.assertEqual(self.new_board.four_same(dice), 8)
+    
+    def test_mark_aces(self):
+        self.assertTrue(self.new_board.mark_aces(self.dice))
+    
+

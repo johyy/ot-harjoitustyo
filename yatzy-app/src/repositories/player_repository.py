@@ -2,23 +2,26 @@ from entities.player import Player
 from connect_database import get_database_connection
 
 
-def get_player_by_row(row):
-    return Player(row['PLAYERNAME']) if row else None
-
-
 class PlayerRepository:
 
     def __init__(self, connection):
         self._connection = connection
 
+    def get_player_by_row(self, row):
+        return Player(row['PLAYERNAME']) if row else None
+
     def find_all(self):
+        list_of_names = []
         cursor = self._connection.cursor()
 
         cursor.execute('SELECT * FROM PLAYERS')
 
         rows = cursor.fetchall()
 
-        return list(map(get_player_by_row, rows))
+        for name in rows:
+            list_of_names.append(name[0])
+
+        return list_of_names
 
     def find_by_playername(self, playername):
         cursor = self._connection.cursor()
@@ -30,7 +33,7 @@ class PlayerRepository:
 
         row = cursor.fetchone()
 
-        return get_player_by_row(row)
+        return self.get_player_by_row(row)
 
     def create(self, player):
         cursor = self._connection.cursor()

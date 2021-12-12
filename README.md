@@ -49,10 +49,9 @@ poetry run invoke test
 
 ### Testikattavuusraportti
 
-Raportti testien kattavuudesta saadaan komennoilla:
+Raportti testien kattavuudesta saadaan komennolla:
 
 ```
-poetry run invoke coverage
 poetry run invoke coverage-report
 ```
 Raportti löytyy _htmlcov_-hakemistosta.

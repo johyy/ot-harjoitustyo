@@ -119,8 +119,21 @@ class BoardView:
 
         self.choose_zero_button.grid()
 
-        if self.new_board.check_if_full == True:
-            messagebox.showinfo("Jee", "You win!")
+    def roll_dice(self):
+
+        if self.new_board.check_if_full() is True:
+            totalsum = self.new_board.count_total()
+            you_win = messagebox.askquestion(
+                self.player + ' wins!', 'You got ' + totalsum + ' points! You should stop playing now.', icon='warning')
+            if you_win == 'yes':
+                self._root.destroy()
+            else:
+                messagebox.showinfo('No more!', 'I mean it, you need to stop playing, ' + self.player +'!')
+                self._root.destroy()
+        else:
+            self._frame.destroy()
+            self.handle_play_view(self.player)
+            self.board_list.destroy()
 
     def aces(self):
         if self.new_board.mark_aces(self.rolled_dice) == False:
@@ -324,12 +337,6 @@ class BoardView:
         self.continue_button = Button(
             self._frame, text='Continue', command=self.roll_dice)
         self.continue_button.grid()
-
-    def roll_dice(self):
-
-        self.board_list.destroy()
-        self._frame.destroy()
-        self.handle_play_view(self.player)
 
     def zero_aces(self):
         dice = [0, 0, 0, 0, 0]

@@ -6,7 +6,6 @@ class PlayView:
         self._root = root
         self.handle_dice_view = handle_dice_view
         self.playername = playername
-        self.list = list
         self.table = None
         self.add_button = None
         self.frame = None

@@ -14,7 +14,7 @@ Sovelluksella on kuusi näkymää:
 
 - Pelaajanimen luonti -näkymä <b>Tehty</b>
 
-- Pelaajanimen valinta -näkymä
+- Pelaajanimen valinta -näkymä <b>Tehty</b>
 
 - Pelitilannenäkymä, jossa peli aloitetaan. Pelitilannenäkymässä näkyy nykyinen pelin tilanne. <b>Tehty</b> 
 
@@ -30,13 +30,13 @@ Sovelluksella on kuusi näkymää:
 
 - Pelaaja voi kahden nopan heittokerran jälkeen valita, mihin kohtaan pistetaulukkoa haluaa pisteensä laittaa. <b>Tehty</b>
 
-- Sovellus laskee pistetaulukkoon automaattisesti 50 pisteen bonuksen, mikäli ykkösten, kakkosten, kolmosten, nelosten, vitosten ja kutosten yhteenlaskettu summa on yli 63 pistettä.
+- Sovellus laskee pistetaulukkoon automaattisesti 50 pisteen bonuksen, mikäli ykkösten, kakkosten, kolmosten, nelosten, vitosten ja kutosten yhteenlaskettu summa on yli 63 pistettä. <b>Tehty</b>
 
-- Pelin päätyttyä sovellus laskee automaattisesti yhteen lopputuloksen.
+- Pelin päätyttyä sovellus laskee automaattisesti yhteen lopputuloksen. <b>Tehty</b>
 
-- Pelin päätyttyä näytetään ponnahdusikkuna, jossa ilmoitetaan lopputulos. Ikkunasta voidaan aloittaa uusi peli tai sulkea sovellus.
+- Pelin päätyttyä näytetään ponnahdusikkuna, jossa ilmoitetaan lopputulos. Ikkunasta voidaan sulkea sovellus. <b>Tehty</b>
 
-<h2> Ideoita jatkokehitykseen </h2>
+<h2> Ideoita jatkokehitykseen, mikäli aikaa jää </h2>
 
 - Kolme nopanheittokierrosta.
 
