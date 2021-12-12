@@ -128,7 +128,8 @@ class BoardView:
             if you_win == 'yes':
                 self._root.destroy()
             else:
-                messagebox.showinfo('No more!', 'I mean it, you need to stop playing, ' + self.player +'!')
+                messagebox.showinfo(
+                    'No more!', 'I mean it, you need to stop playing, ' + self.player + '!')
                 self._root.destroy()
         else:
             self._frame.destroy()
