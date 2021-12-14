@@ -35,47 +35,47 @@ class TestBoard(unittest.TestCase):
         self.new_board = Board()
         self.dice = [1, 2, 3, 4, 5]
 
-    def test_check_aces_with_aces(self):
-        self.assertTrue(self.new_board.check_aces(self.dice))
+    def test_check_numbers_with_ace(self):
+        self.assertTrue(self.new_board.check_numbers(self.dice, 1))
 
-    def test_check_aces_with_no_aces(self):
+    def test_check_numbers_with_no_aces(self):
         dice = [2, 2, 3, 4, 5]
-        self.assertFalse(self.new_board.check_aces(dice))
+        self.assertFalse(self.new_board.check_numbers(dice, 1))
 
-    def test_check_twos_with_twos(self):
-        self.assertTrue(self.new_board.check_twos(self.dice))
+    def test_check_numbers_with_two(self):
+        self.assertTrue(self.new_board.check_numbers(self.dice, 2))
 
-    def test_check_twos_with_no_twos(self):
+    def test_check_numbers_with_no_twos(self):
         dice = [1, 1, 3, 4, 5]
-        self.assertFalse(self.new_board.check_twos(dice))
+        self.assertFalse(self.new_board.check_numbers(dice, 2))
 
-    def test_check_threes_with_threes(self):
-        self.assertTrue(self.new_board.check_threes(self.dice))
+    def test_check_numbers_with_three(self):
+        self.assertTrue(self.new_board.check_numbers(self.dice, 3))
 
-    def test_check_threes_with_no_threes(self):
+    def test_check_numbers_with_no_threes(self):
         dice = [1, 2, 4, 4, 5]
-        self.assertFalse(self.new_board.check_threes(dice))
+        self.assertFalse(self.new_board.check_numbers(dice, 3))
 
-    def test_check_fours_with_fours(self):
-        self.assertTrue(self.new_board.check_fours(self.dice))
+    def test_check_numbers_with_four(self):
+        self.assertTrue(self.new_board.check_numbers(self.dice, 4))
 
-    def test_check_fours_with_no_fours(self):
+    def test_check_numbers_with_no_fours(self):
         dice = [1, 2, 3, 5, 5]
-        self.assertFalse(self.new_board.check_fours(dice))
+        self.assertFalse(self.new_board.check_numbers(dice, 4))
 
-    def test_check_fives_with_fives(self):
-        self.assertTrue(self.new_board.check_fives(self.dice))
+    def test_check_numbers_with_five(self):
+        self.assertTrue(self.new_board.check_numbers(self.dice, 5))
 
-    def test_check_fives_with_no_fives(self):
+    def test_check_numbers_with_no_fives(self):
         dice = [1, 2, 3, 4, 4]
-        self.assertFalse(self.new_board.check_fives(dice))
+        self.assertFalse(self.new_board.check_numbers(dice, 5))
 
-    def test_check_sixes_with_sixes(self):
+    def test_check_numbers_with_six(self):
         dice = [2, 3, 4, 5, 6]
-        self.assertTrue(self.new_board.check_sixes(dice))
+        self.assertTrue(self.new_board.check_numbers(dice, 6))
 
-    def test_check_sixes_with_no_sixes(self):
-        self.assertFalse(self.new_board.check_sixes(self.dice))
+    def test_check_numbers_with_no_sixes(self):
+        self.assertFalse(self.new_board.check_numbers(self.dice, 6))
 
     def test_check_three_kind_with_three_same(self):
         dice = [3, 1, 1, 1, 3]
@@ -147,24 +147,24 @@ class TestBoard(unittest.TestCase):
         dice = []
         self.assertFalse(self.new_board.check_yatzy(dice))
 
-    def test_aces_with_one_ace(self):
-        self.assertEqual(self.new_board.aces(self.dice), 1)
+    def test_numbers_with_one_ace(self):
+        self.assertEqual(self.new_board.numbers(self.dice, 1), 1)
 
-    def test_twos_with_one_two(self):
-        self.assertEqual(self.new_board.twos(self.dice), 2)
+    def test_numbers_with_one_two(self):
+        self.assertEqual(self.new_board.numbers(self.dice, 2), 2)
 
-    def test_threes_with_one_three(self):
-        self.assertEqual(self.new_board.threes(self.dice), 3)
+    def test_numbers_with_one_three(self):
+        self.assertEqual(self.new_board.numbers(self.dice, 3), 3)
 
-    def test_fours_with_one_four(self):
-        self.assertEqual(self.new_board.fours(self.dice), 4)
+    def test_numbers_with_one_four(self):
+        self.assertEqual(self.new_board.numbers(self.dice, 4), 4)
 
-    def test_fives_with_one_five(self):
-        self.assertEqual(self.new_board.fives(self.dice), 5)
+    def test_numbers_with_one_five(self):
+        self.assertEqual(self.new_board.numbers(self.dice, 5), 5)
 
-    def test_sixes_with_one_six(self):
+    def test_numbers_with_one_six(self):
         dice = [2, 3, 4, 5, 6]
-        self.assertEqual(self.new_board.sixes(dice), 6)
+        self.assertEqual(self.new_board.numbers(dice, 6), 6)
 
     def test_three_same_with_three_dice(self):
         dice = [1, 1, 1]
@@ -206,5 +206,5 @@ class TestBoard(unittest.TestCase):
         dice = [2, 2, 2, 2, 1]
         self.assertEqual(self.new_board.four_same(dice), 8)
 
-    def test_mark_aces(self):
+    def test_mark_aces_true(self):
         self.assertTrue(self.new_board.mark_aces(self.dice))

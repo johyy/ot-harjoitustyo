@@ -65,27 +65,27 @@ class BoardView:
         self.list.grid()
         self.question.grid()
 
-        if self.new_board.check_aces(self.rolled_dice):
+        if self.new_board.check_numbers(self.rolled_dice, 1):
             self.aces_button = Button(
                 self._frame, text='Aces', command=self.aces)
             self.aces_button.grid()
-        if self.new_board.check_twos(self.rolled_dice):
+        if self.new_board.check_numbers(self.rolled_dice, 2):
             self.twos_button = Button(
                 self._frame, text='Twos', command=self.twos)
             self.twos_button.grid()
-        if self.new_board.check_threes(self.rolled_dice):
+        if self.new_board.check_numbers(self.rolled_dice, 3):
             self.threes_button = Button(
                 self._frame, text='Threes', command=self.threes)
             self.threes_button.grid()
-        if self.new_board.check_fours(self.rolled_dice):
+        if self.new_board.check_numbers(self.rolled_dice, 4):
             self.fours_button = Button(
                 self._frame, text='Fours', command=self.fours)
             self.fours_button.grid()
-        if self.new_board.check_fives(self.rolled_dice):
+        if self.new_board.check_numbers(self.rolled_dice, 5):
             self.fives_button = Button(
                 self._frame, text='Fives', command=self.fives)
             self.fives_button.grid()
-        if self.new_board.check_sixes(self.rolled_dice):
+        if self.new_board.check_numbers(self.rolled_dice, 6):
             self.sixes_button = Button(
                 self._frame, text='Sixes', command=self.sixes)
             self.sixes_button.grid()
@@ -129,7 +129,7 @@ class BoardView:
                 self._root.destroy()
             else:
                 messagebox.showinfo(
-                    'No more!', 'I mean it, you need to stop playing, ' + self.player + '!')
+                    'No more!', 'I mean it. You need to stop playing, ' + self.player + '!')
                 self._root.destroy()
         else:
             self._frame.destroy()
