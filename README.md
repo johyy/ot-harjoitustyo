@@ -72,4 +72,3 @@ Käytä komentoja ennen poetryn asentamista ja ohjelman käynnistämistä:
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 source $HOME/.poetry/env
 ```
-Muista muokata pyproject.toml tiedostossa pythonin versioksi 3.6.!
