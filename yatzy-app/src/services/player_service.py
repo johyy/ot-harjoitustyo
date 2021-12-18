@@ -1,4 +1,5 @@
 from sqlite3.dbapi2 import Error
+from tkinter import messagebox
 from entities.player import Player
 from repositories.player_repository import (
     player_repository as default_player_repository)
@@ -9,11 +10,12 @@ class PlayerService:
         self._player = None
         self._player_repository = player_repository
 
-    def create_user(self, playername):
+    def create_player(self, playername):
         existing_player = self._player_repository.find_by_playername(
             playername)
 
         if existing_player:
+            messagebox.showerror('Error', 'Player name already in use')
             raise Error('Player name already in use')
 
         self._player = self._player_repository.create(Player(playername))

@@ -29,8 +29,12 @@ class PlayersView:
 
         if len(new_player) > 0 and len(new_player) < 21:
 
-            player_service.create_user(new_player)
-            messagebox.showinfo(new_player, 'Added to the players!')
+            player_service.create_player(new_player)
+            messagebox.showinfo('Added to the players!', new_player)
+
+        else:
+            messagebox.showerror(
+                'Error', 'The length of the player name should be between 0 and 20')
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)

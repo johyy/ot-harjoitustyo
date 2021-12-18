@@ -23,10 +23,13 @@ class Dice:
         """Sekoittaa listan tallennetuista luvuista listaan uudelleen arvotuista luvuista.
 
         Args:
-            dice: Lista nopan silmälukuja kuvaavista luvuista, jotka on arvottu uudelleen käyttäen metodia roll_dice().
-            selected_dice: Lista nopan silmälukuja kuvaavista luvuista, jotka on aiemmin valittu tallennettaviksi.
+            dice: Lista nopan silmälukuja kuvaavista luvuista,
+            jotka on arvottu uudelleen käyttäen metodia roll_dice().
+            selected_dice: Lista nopan silmälukuja kuvaavista luvuista,
+            jotka on aiemmin valittu tallennettaviksi.
         Returns:
-            Lista, jossa on yhteensä viisi nopan silmälukua kuvaavaa lukua, jotka on saatu listoista "dice" ja "selected_dice".
+            Lista, jossa on yhteensä viisi nopan silmälukua kuvaavaa lukua,
+            jotka on saatu listoista "dice" ja "selected_dice".
         """
 
         mixed_dice = []
@@ -52,4 +55,3 @@ class Dice:
             new_sum += dice[i]
             i += 1
         return new_sum
-        
