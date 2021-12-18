@@ -429,7 +429,7 @@ class Board:
         return True
 
     def check_if_bonus(self):
-        """Tarkistaa onko mahdollista lisätä tulostauluun luku 50 kohdalle "Bonus" ja lisää sen, mikäli mahdollista on. 
+        """Tarkistaa onko mahdollista lisätä tulostauluun luku 50 kohdalle "Bonus" ja lisää sen, mikäli mahdollista on.
             Bonus lisätään kun luvut 1-6 ovat täynnä ja summaltaan yli 63."""
 
         bonus_sum = 0

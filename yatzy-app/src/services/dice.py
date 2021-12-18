@@ -6,11 +6,11 @@ class Dice:
 
     def roll_dice(self, dice):
         """Arpoo listalle uudet numerot välillä 1-6.
-        
+
         Args:
             dice: Lista nopan silmälukuja kuvaavista luvuista.
         Returns:
-            Lista, jossa on uudet, arvotut luvut.    
+            Lista, jossa on uudet, arvotut luvut.
         """
 
         rolled_dice = []
@@ -21,7 +21,7 @@ class Dice:
 
     def mix_dice(self, dice, selected_dice):
         """Sekoittaa listan tallennetuista luvuista listaan uudelleen arvotuista luvuista.
-        
+
         Args:
             dice: Lista nopan silmälukuja kuvaavista luvuista, jotka on arvottu uudelleen käyttäen metodia roll_dice().
             selected_dice: Lista nopan silmälukuja kuvaavista luvuista, jotka on aiemmin valittu tallennettaviksi.
@@ -39,16 +39,17 @@ class Dice:
 
     def dice_total(self, dice):
         """Laskee yhteen listan luvut.
-        
+
         Args:
             dice: Lista nopan silmälukuja kuvaavista luvuista, jotka halutaan laskea yhteen.
         Returns:
-            Summa yhteenlasketuista luvuista.        
+            Summa yhteenlasketuista luvuista.
         """
-        
+
         new_sum = 0
         i = 0
         while i < len(dice):
             new_sum += dice[i]
             i += 1
         return new_sum
+        

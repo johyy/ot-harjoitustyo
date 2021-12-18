@@ -10,5 +10,5 @@ class Player:
         Args:
             playername: Merkkijonoarvo, joka kuvaa pelaajan pelaajanimeä.
         """
-        
+
         self.playername = playername

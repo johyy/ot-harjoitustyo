@@ -14,27 +14,31 @@ Sovelluksen avulla käyttäjän on mahdollista pelata legendaarista Yatzy-peliä
 
 ## Asennus
 
-Asenna python3, pip sekä poetry komennoilla:
+Poetryn riippuvuudet saadaan asennettua komennolla:
 
-```
-python3
-```
-```
-pip3
-```
-```
+```bash
 poetry install
 ```
 
-### Ohjelman suorittaminen
+Ohjelman tietokannan saa alustettua komennolla:
 
-Ohjelma alustetaan komennolla:
 
 ```bash
 poetry run invoke build
 ```
 
-Ohjelman suoritus alkaa komennolla:
+Itse peli käynnistyy komennolla:
+
+
+```bash
+poetry run invoke start
+```
+
+## Komentorivikomennot
+
+### Ohjelman suorittaminen
+
+Ohjelma voidaan suorittaa komennolla:
 
 ```bash
 poetry run invoke start
@@ -56,6 +60,7 @@ Raportti testien kattavuudesta saadaan komennolla:
 poetry run invoke coverage-report
 ```
 Raportti löytyy _htmlcov_-hakemistosta.
+
 
 ### Pylint
 

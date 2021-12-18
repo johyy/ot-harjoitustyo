@@ -2,6 +2,12 @@
 
 ## Ohjelman käynnistäminen
 
+Poetryn riippuvuudet saadaan asennettua komennolla:
+
+```bash
+poetry install
+```
+
 Ohjelman tietokannan saa alustettua komennolla:
 
 

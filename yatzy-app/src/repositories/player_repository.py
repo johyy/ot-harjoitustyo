@@ -17,14 +17,14 @@ class PlayerRepository:
 
     def get_player_by_row(self, row):
         """Palauttaa kaikki rivit Player-olioista
-        
+
         Args:
             row: Rivi, jota haetaan tietokannasta.
         Returns:
             Player-olio, jos pelaajanimen omaava pelaaja on tietokannassa.
             Jos pelaajaa ei ole, palautetaan None.
         """
-        
+
         return Player(row['PLAYERNAME']) if row else None
 
     def find_all(self):
