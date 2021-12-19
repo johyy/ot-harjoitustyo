@@ -30,7 +30,7 @@ class PlayersView:
         if len(new_player) > 0 and len(new_player) < 21:
 
             player_service.create_player(new_player)
-            messagebox.showinfo('Added to the players!', new_player)
+            messagebox.showinfo(new_player, 'Added to the players!')
 
         else:
             messagebox.showerror(

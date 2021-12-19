@@ -12,3 +12,4 @@ class Player:
         """
 
         self.playername = playername
+        self.points = 0

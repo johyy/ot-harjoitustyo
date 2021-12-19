@@ -72,7 +72,7 @@ poetry run invoke lint
 
 ### Jos käytät yliopiston konetta
 
-Käytä komentoja ennen poetryn asentamista ja ohjelman käynnistämistä:
+Käytä komentoja ennen ohjelman käynnistämistä:
 ```
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 source $HOME/.poetry/env

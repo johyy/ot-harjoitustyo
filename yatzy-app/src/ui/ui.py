@@ -4,7 +4,7 @@ from ui.players_view import PlayersView
 from ui.choose_player import ChoosePlayerView
 from ui.board_view import BoardView
 from ui.dice_view import DiceView
-
+from ui.top_score_view import TopScoreView
 
 class UI:
     def __init__(self, root):
@@ -32,9 +32,13 @@ class UI:
 
     def _handle_dice_view(self, playername):
         self.show_dice_view(playername)
-
-    def _handle_index_view(self):
-        self.show_index_view()
+    
+    def _handle_top_score_view(self):
+        self.show_top_score_view()
+    
+    def show_top_score_view(self):
+        self.hide_current_view()
+        self._current_view = TopScoreView(self.root, self._handle_choose_player_view)
 
     def show_dice_view(self, playername):
         self.hide_current_view()
@@ -44,12 +48,12 @@ class UI:
     def show_board_view(self, playername, dice, sum):
         self.hide_current_view()
         self._current_view = BoardView(
-            self.root, playername, dice, sum, self._handle_play_view, self._handle_index_view)
+            self.root, playername, dice, sum, self._handle_play_view)
 
     def show_index_view(self):
         self.hide_current_view()
         self._current_view = IndexView(
-            self.root, self._handle_choose_player_view, self._handle_players_view)
+            self.root, self._handle_choose_player_view, self._handle_top_score_view)
 
     def show_play_view(self, playername):
         self.hide_current_view()

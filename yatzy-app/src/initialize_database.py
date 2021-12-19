@@ -5,7 +5,7 @@ def drop_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        DROP TABLE IF EXISTS PLAYERS;
+        DROP TABLE IF EXISTS players;
     ''')
 
     connection.commit()
@@ -15,8 +15,9 @@ def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        CREATE TABLE PLAYERS (
-            PLAYERNAME TEXT PRIMARY KEY
+        CREATE TABLE players (
+            playername TEXT PRIMARY KEY,
+            points INTEGER
         );
     ''')
 

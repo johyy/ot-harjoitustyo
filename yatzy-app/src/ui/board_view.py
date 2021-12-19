@@ -1,18 +1,19 @@
 from tkinter import *
 from tkinter import messagebox
 from services.board import Board
+from services.player_service import PlayerService
 
 
 class BoardView:
-    def __init__(self, root, player, rolled_dice, sum, handle_play_view, handle_index_view):
+    def __init__(self, root, player, rolled_dice, sum, handle_play_view):
         self._root = root
         self.rolled_dice = rolled_dice
         self.sum = sum
         self.player = player
         self.handle_play_view = handle_play_view
-        self.handle_index_view = handle_index_view
         self._frame = None
         self.new_board = Board()
+        self.player_service = PlayerService()
         self.list = None
         self.board_list = Listbox(self._frame)
         self.question = None
@@ -123,6 +124,9 @@ class BoardView:
 
         if self.new_board.check_if_full() is True:
             totalsum = self.new_board.count_total()
+            if int(totalsum) >  self.player_service.get_points_of_player(self.player):
+                self.player_service.update_points(self.player, totalsum)
+                messagebox.showinfo('NEW TOP SCORE!', self.player + ' makes history!')
             you_win = messagebox.askquestion(
                 self.player + ' wins!', 'You got ' + totalsum + ' points! You should stop playing now.', icon='warning')
             if you_win == 'yes':

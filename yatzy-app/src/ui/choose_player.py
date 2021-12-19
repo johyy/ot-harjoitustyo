@@ -20,7 +20,7 @@ class ChoosePlayerView:
     def playbutton(self):
         self.player = self.box.get()
         if self.player:
-            messagebox.showinfo('You choose the name ', self.player)
+            messagebox.showinfo('Ready to play?', 'You chose the name ' + self.player)
             self._frame.destroy()
             self._handle_play_view(self.player)
         else:

@@ -25,9 +25,9 @@ class PlayerRepository:
             Jos pelaajaa ei ole, palautetaan None.
         """
 
-        return Player(row['PLAYERNAME']) if row else None
+        return Player(row['playername']) if row else None
 
-    def find_all(self):
+    def find_all_names(self):
         """Palauttaa kaikki pelaajanimet.
 
         Returns:
@@ -37,7 +37,7 @@ class PlayerRepository:
         list_of_names = []
         cursor = self._connection.cursor()
 
-        cursor.execute('SELECT * FROM PLAYERS')
+        cursor.execute('SELECT playername FROM players')
 
         rows = cursor.fetchall()
 
@@ -45,6 +45,26 @@ class PlayerRepository:
             list_of_names.append(name[0])
 
         return list_of_names
+    
+    def find_all(self):
+        """Palauttaa kaikki pelaajanimet.
+
+        Returns:
+            Palauttaa listan Player-olioiden pelaajanimistä.
+        """
+
+        list_of_players = []
+        cursor = self._connection.cursor()
+
+        cursor.execute('SELECT * FROM players ORDER BY points DESC')
+
+        rows = cursor.fetchall()
+
+        for player in rows:
+            list_of_players.append(player[0])
+            list_of_players.append(str(player[1]))
+
+        return list_of_players
 
     def find_by_playername(self, playername):
         """Palauttaa pelajaajan pelaajanimen perusteella.
@@ -59,13 +79,37 @@ class PlayerRepository:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            'SELECT * FROM PLAYERS WHERE PLAYERNAME = ?',
+            'SELECT * FROM players WHERE playername = ?',
             (playername,)
         )
 
         row = cursor.fetchone()
 
         return self.get_player_by_row(row)
+    
+    def find_points(self, playername):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            'SELECT points FROM players WHERE playername = ?',
+            (playername,)
+        )
+
+        row = cursor.fetchone()
+        
+        return int(row[0])
+
+    def update_points(self, player, points):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            'UPDATE players SET points = ? WHERE playername = ?',
+            (points, player,)
+        )
+
+        self._connection.commit()
 
     def create(self, player):
         """Tallentaa pelaajan tietokantaan.
@@ -79,7 +123,7 @@ class PlayerRepository:
         cursor = self._connection.cursor()
 
         cursor.execute(
-            'INSERT INTO PLAYERS (PLAYERNAME) VALUES (?)',
+            'INSERT INTO players (playername, points) VALUES (?, 0)',
             (player.playername,)
         )
 
@@ -93,7 +137,7 @@ class PlayerRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute('DELETE FROM PLAYERS')
+        cursor.execute('DELETE FROM players')
 
         self._connection.commit()
 

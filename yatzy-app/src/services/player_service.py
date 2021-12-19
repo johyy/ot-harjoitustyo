@@ -22,21 +22,16 @@ class PlayerService:
 
         return self._player
 
-    def in_use(self, playername):
-        player = self._player_repository.find_by_playername(playername)
-
-        if not player:
-            pass
-
-        self._player = player
-
-        return player
-
-    def get_current_player(self):
-        return self._player
-
     def get_all_players(self):
+        return self._player_repository.find_all_names()
+    
+    def get_all_players_and_points(self):
         return self._player_repository.find_all()
-
+    
+    def get_points_of_player(self, playername):
+        return self._player_repository.find_points(playername)
+    
+    def update_points(self, playername, points):
+        self._player_repository.update_points(playername, points)
 
 player_service = PlayerService()
