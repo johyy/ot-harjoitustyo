@@ -2,9 +2,9 @@ class Board:
     """Pelilaudan sovelluslogiikasta vastaava luokka."""
 
     _table = {"Aces": '-', "Twos": '-', "Threes": '-', "Fours": '-', "Fives": '-',
-            "Sixes": '-', "Bonus": '0', "Three of a kind": '-',
-            "Four of a kind": '-', "Full house": '-', "Small straight": '-',
-            "Large straight": '-', "Chance": '-', "Yatzy": '-'}
+              "Sixes": '-', "Bonus": '0', "Three of a kind": '-',
+              "Four of a kind": '-', "Full house": '-', "Small straight": '-',
+              "Large straight": '-', "Chance": '-', "Yatzy": '-'}
 
     def check_numbers(self, dice_list, number):
         """Käy läpi listan etsien haluttua lukua.
@@ -55,14 +55,14 @@ class Board:
         dice_list.sort()
         if len(dice_list) == 4:
             if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2] and \
-                dice_list[2] == dice_list[3]:
+                    dice_list[2] == dice_list[3]:
                 return True
         if len(dice_list) == 5:
             if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2] and \
-                dice_list[2] == dice_list[3]:
+                    dice_list[2] == dice_list[3]:
                 return True
             if dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3] and \
-                dice_list[3] == dice_list[4]:
+                    dice_list[3] == dice_list[4]:
                 return True
         return False
 
@@ -97,7 +97,7 @@ class Board:
         if len(dice_list) == 5:
             dice_list.sort()
             if dice_list[0] == 1 and dice_list[1] == 2 and dice_list[2] == 3 and \
-                dice_list[3] == 4 and dice_list[4] == 5:
+                    dice_list[3] == 4 and dice_list[4] == 5:
                 return True
         return False
 
@@ -113,7 +113,7 @@ class Board:
         if len(dice_list) == 5:
             dice_list.sort()
             if dice_list[0] == 2 and dice_list[1] == 3 and dice_list[2] == 4 and \
-                dice_list[3] == 5 and dice_list[4] == 6:
+                    dice_list[3] == 5 and dice_list[4] == 6:
                 return True
         return False
 
@@ -206,18 +206,18 @@ class Board:
         dice_list.sort()
         if len(dice_list) == 4:
             if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2] and \
-                dice_list[2] == dice_list[3]:
+                    dice_list[2] == dice_list[3]:
                 for die in dice_list:
                     new_list.append(die)
         if len(dice_list) == 5:
             if dice_list[0] == dice_list[1] and dice_list[1] == dice_list[2] and \
-                dice_list[2] == dice_list[3]:
+                    dice_list[2] == dice_list[3]:
                 new_list.append(dice_list[0])
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
                 new_list.append(dice_list[3])
             elif dice_list[1] == dice_list[2] and dice_list[2] == dice_list[3] and \
-                dice_list[3] == dice_list[4]:
+                    dice_list[3] == dice_list[4]:
                 new_list.append(dice_list[1])
                 new_list.append(dice_list[2])
                 new_list.append(dice_list[3])
@@ -461,8 +461,8 @@ class Board:
 
         bonus_sum = 0
         if self._table["Aces"] != "-" and self._table["Twos"] != "-" and \
-            self._table["Threes"] != "-" and self._table["Fours"] != "-" and \
-            self._table["Fives"] != "-" and self._table["Sixes"] != "-":
+                self._table["Threes"] != "-" and self._table["Fours"] != "-" and \
+                self._table["Fives"] != "-" and self._table["Sixes"] != "-":
             bonus_sum += self._table["Aces"]
             bonus_sum += self._table["Twos"]
             bonus_sum += self._table["Threes"]

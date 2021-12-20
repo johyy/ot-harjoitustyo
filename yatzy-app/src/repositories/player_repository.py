@@ -31,7 +31,7 @@ class PlayerRepository:
         """Palauttaa kaikki pelaajanimet.
 
         Returns:
-            Palauttaa listan Player-olioiden pelaajanimistä.
+            Palauttaa listan pelaajanimistä.
         """
 
         list_of_names = []
@@ -45,12 +45,12 @@ class PlayerRepository:
             list_of_names.append(name[0])
 
         return list_of_names
-    
+
     def find_all(self):
-        """Palauttaa kaikki pelaajanimet.
+        """Palauttaa kaikki pelaajanimet ja niihin liittyväy pisteet.
 
         Returns:
-            Palauttaa listan Player-olioiden pelaajanimistä.
+            Palauttaa listan pelaajanimistä ja niihin liittyvistä pisteistä.
         """
 
         list_of_players = []
@@ -86,8 +86,15 @@ class PlayerRepository:
         row = cursor.fetchone()
 
         return self.get_player_by_row(row)
-    
+
     def find_points(self, playername):
+        """Palauttaa pelaajanimeen liittyvät pisteet.
+
+        Args:
+            playername: Pelaajanimi, jonka pisteet palautetaan.
+        Returns:
+            Kokonaislukuarvo halutun pelaajanimen pisteistä.
+        """
 
         cursor = self._connection.cursor()
 
@@ -97,10 +104,16 @@ class PlayerRepository:
         )
 
         row = cursor.fetchone()
-        
+
         return int(row[0])
 
     def update_points(self, player, points):
+        """Päivittää tietokantaan halutut pisteet halutulle pelaajanimelle.
+
+        Args:
+            player: Pelaajanimi, jonka pisteitä halutaan päivittää.
+            points: Pistemäärä, joka vaihdetaan edellisten pisteiden tilalle.
+        """
 
         cursor = self._connection.cursor()
 

@@ -14,7 +14,7 @@ class IndexView:
         self._frame = None
         turtle.Screen().bgcolor("black")
         pen = turtle.Turtle()
-        
+
         pen.width(6)
         pen.speed(10)
 

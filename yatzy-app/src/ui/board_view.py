@@ -124,9 +124,10 @@ class BoardView:
 
         if self.new_board.check_if_full() is True:
             totalsum = self.new_board.count_total()
-            if int(totalsum) >  self.player_service.get_points_of_player(self.player):
+            if int(totalsum) > self.player_service.get_points_of_player(self.player):
                 self.player_service.update_points(self.player, totalsum)
-                messagebox.showinfo('NEW TOP SCORE!', self.player + ' makes history!')
+                messagebox.showinfo(
+                    'NEW TOP SCORE!', self.player + ' makes history!')
             you_win = messagebox.askquestion(
                 self.player + ' wins!', 'You got ' + totalsum + ' points! You should stop playing now.', icon='warning')
             if you_win == 'yes':
