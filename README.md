@@ -10,6 +10,7 @@ Sovelluksen avulla käyttäjän on mahdollista pelata legendaarista Yatzy-peliä
 - [Työaikakirjanpito](./yatzy-app/dokumentaatio/tyoaikakirjanpito.md)
 - [Arkkitehtuuri](./yatzy-app/dokumentaatio/arkkitehtuuri.md)
 - [Käyttöohje](./yatzy-app/dokumentaatio/kayttoohje.md)
+- [Testausdokumentti](.yatzy-app/dokumentaatio/testausdokumentti.md)
 - [Releaset](https://github.com/johyy/ot-harjoitustyo/releases)
 
 ## Asennus
