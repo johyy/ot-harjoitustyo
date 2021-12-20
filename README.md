@@ -1,17 +1,16 @@
-# Yatzy
+# ![](./yatzy-app/dokumentaatio/kuvat/logo.png)
 
-<i>Sovellus tehdään Helsingin Yliopiston kurssilla "Ohjelmistotekniikka".</i>
+<i>Sovellus on tehty Helsingin Yliopiston kurssilla "Ohjelmistotekniikka".</i>
 
 Sovelluksen avulla käyttäjän on mahdollista pelata legendaarista Yatzy-peliä! Peli on yksinpeli, jossa pelaaja heittää viittä noppaa kahdella kierroksella ja päättää sen jälkeen, miten haluaa pisteet käyttää. Tarkoituksena on kerätä mahdollisimman iso pistepotti!
 
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](./yatzy-app/dokumentaatio/vaatimusmaarittely.md)
+- [Käyttöohje](./yatzy-app/dokumentaatio/kayttoohje.md)
 - [Työaikakirjanpito](./yatzy-app/dokumentaatio/tyoaikakirjanpito.md)
 - [Arkkitehtuuri](./yatzy-app/dokumentaatio/arkkitehtuuri.md)
-- [Käyttöohje](./yatzy-app/dokumentaatio/kayttoohje.md)
-- [Testausdokumentti](.yatzy-app/dokumentaatio/testausdokumentti.md)
-- [Releaset](https://github.com/johyy/ot-harjoitustyo/releases)
+- [Testausdokumentti](./yatzy-app/dokumentaatio/testausdokumentti.md)
 
 ## Asennus
 
