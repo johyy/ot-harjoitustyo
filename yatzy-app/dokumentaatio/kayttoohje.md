@@ -1,5 +1,7 @@
 # Käyttöohje
 
+Pelin lähdekoodi löytyy sen tuoreimmasta [releasesta](https://github.com/johyy/ot-harjoitustyo/releases), valitsemalla _Assets_ -kohdan alta _Source code_.
+
 ## Ohjelman käynnistäminen
 
 Poetryn riippuvuudet saadaan asennettua komennolla:
@@ -28,7 +30,7 @@ Peli käynnistyy aloitusikkunaan:
 
 ![](./kuvat/aloitusnaytto.png)
 
-Peli aloitetaan painamalla "Play"-painiketta.
+Pelaajanimien parhaimpia tuloksia pääsee katselemaan painikkeella "Top Score". Peli aloitetaan painamalla "Play"-painiketta.
 
 ## Pelaajanimen lisääminen
 
@@ -54,11 +56,11 @@ Ensimmäisen kierroksen nopat tulevat seuraavaan näkymään. Näistä valitaan 
 
 ![](./kuvat/ekakierros.png)
 
-Nopat heitetään uudelleen ja seuraavassa näkymässä valitaan ne nopat, joita halutaan käyttää pisteidenlaskussa:
+Nopat heitetään uudelleen ja seuraavassa näkymässä valitaan jälleen säästettävät nopat:
 
 ![](./kuvat/tokakierros.png)
 
-"Ready!"-painikkeella siirrytään seuraavaan näkymään, jossa peli näyttää automaattisesti ne kohdat pistetaulukosta, joita valituilla nopilla on mahdollista valita:
+"Ready!"-painikkeella siirrytään seuraavaan näkymään, jossa näkyvät vielä kerran heitetyt nopat. Peli näyttää automaattisesti ne kohdat pistetaulukosta, joita valituilla nopilla on mahdollista valita:
 
 ![](./kuvat/valinta.png)
 
@@ -74,10 +76,4 @@ Pistetilanne avautuu seuraavaan näkymään ja päivittää itseään jokaisen k
 
 ![](./kuvat/pistetilanne.png)
 
-Kun kaikki kohdat on täytetty, tulee ilmoitus, joka kertoo lopullisen pistemäärän ja ohjaa pelaajan sulkemaan pelin.
-
-
-
-
-
-
+Kun kaikki kohdat on täytetty ja peli loppuu, tulee ilmoitus, mikäli pistemäärä on uusi ennätys pelaavalle pelaajanimelle. Mikäli ennätystä ei synny, ilmoittaa sovellus ainoastaan lopullisen pistemäärän ja ohjaa pelaajaa sulkemaan pelin.
