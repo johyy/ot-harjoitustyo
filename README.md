@@ -2,7 +2,7 @@
 
 <i>Sovellus on tehty Helsingin Yliopiston kurssilla "Ohjelmistotekniikka".</i>
 
-Sovelluksen avulla käyttäjän on mahdollista pelata legendaarista Yatzy-peliä! Peli on yksinpeli, jossa pelaaja heittää viittä noppaa kahdella kierroksella ja päättää sen jälkeen, miten haluaa pisteet käyttää. Tarkoituksena on kerätä mahdollisimman iso pistepotti!
+Sovelluksen avulla käyttäjän on mahdollista pelata legendaarista Yatzy-peliä! Peli on yksinpeli, jossa pelaaja heittää viittä noppaa kolmella kierroksella ja päättää sen jälkeen, miten haluaa pisteet käyttää. Tarkoituksena on kerätä mahdollisimman iso pistepotti!
 
 ## Dokumentaatio
 
