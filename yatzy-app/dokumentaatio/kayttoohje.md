@@ -2,6 +2,14 @@
 
 Pelin lähdekoodi löytyy sen tuoreimmasta [releasesta](https://github.com/johyy/ot-harjoitustyo/releases), valitsemalla _Assets_ -kohdan alta _Source code_.
 
+### Konfigurointi
+
+Pelaajanimien ja pisteiden tallennukseen käytettävän tietokannan nimeä on mahdollista konfiguroida juurihakemiston _.env_-tiedostossa. Tiedoston nimen muodon täytyy olla kuvatun tyylinen: 
+
+```
+DATABASE_FILENAME=database.sqlite
+```
+
 ## Ohjelman käynnistäminen
 
 Poetryn riippuvuudet saadaan asennettua komennolla:
