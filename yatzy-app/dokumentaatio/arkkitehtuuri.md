@@ -26,29 +26,29 @@ Pakkauksen _ui_ sisältämässä käyttöliittymässä on seitsemän erilaista n
 - Nopanheitto [(DiceView)](../src/ui/dice_view.py)
 - Pisteiden valinta [(BoardView)](../src/ui/board_view.py)
 
-Jokainen näkymä on toteutettu omana luokkanaan, joiden nimet on mainittu sulkeissa. Näkymiä näytetään aina yksi kerrallan. Mainittujen lisäksi on olemassa `ui`-luokka, joka vastaa eri näkymien näyttämisestä ja niihin vaihtamisesta. 
+Jokainen näkymä on toteutettu omana luokkanaan, joiden nimet on mainittu sulkeissa. Näkymiä näytetään aina yksi kerrallan. Mainittujen lisäksi on olemassa [UI](../src/ui/ui.py)-luokka, joka vastaa eri näkymien näyttämisestä ja niihin vaihtamisesta. 
 
 Näkymiin liittyvät toiminnallisuudet on toteutettu sovelluslogiikan pakkaukseen ja käyttöliittymä onkin kokonaan eriytetty sovelluslogiikasta.
 
 ## Sovelluslogiikka
 
-Sovelluslogiikka toteutetaan siis pakkauksessa _services_ ja tarkemmin luokissa nimeltä `Board`, `Dice` ja `PlayerService`. Nimiensä mukaisesti luokat kuvaavat pelaajien, pelilaudan ja noppien toiminnallisuutta. Alle on kuvattu _services_ pakkauksen suhteet muihin pakkauksiin:
+Sovelluslogiikka toteutetaan siis pakkauksessa _services_ ja tarkemmin luokissa nimeltä [Dice](../src/services/dice.py), [Board](../src/services/board.py) ja [PlayerService](../src/services/player_service.py). Nimiensä mukaisesti luokat kuvaavat pelaajien, pelilaudan ja noppien toiminnallisuutta. Alle on kuvattu _services_ pakkauksen suhteet muihin pakkauksiin:
 
 ![Pakkausrakenne](./kuvat/arkkitehtuuri_pakkauskaavio.png)
 
 Luokkien käyttöliittymälle tarjoamia metodeja on paljon, ensimmäisten noppin heitosta eri noppayhdistelmien merkitsemiseen taululle. Esimerkkejä luokkien tarjoamista metodeista:
 
-[Dice:](../src/services/dice.py)
+`Dice`:
 
 - `roll_dice(dice)`
 - `mix_dice(dice, selected_dice)`
 
-[Board:](../src/services/board.py)
+`Board`:
 
 - `check_numbers(dice_list, number)`
 - `mark_full_house(new_sum)`
 
-[PlayerService:](../src/services/player_service.py)
+`PlayerService`:
 
 - `create_player(playername)`
 - `get_points_of_player(playername)`
