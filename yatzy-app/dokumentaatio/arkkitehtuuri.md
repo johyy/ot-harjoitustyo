@@ -18,47 +18,47 @@ Lisäksi on vielä pakkaus _pictures_, joka sisältää käyttöliittymään lii
 
 Pakkauksen _ui_ sisältämässä käyttöliittymässä on seitsemän erilaista näkymää:
 
-- Etusivu (IndexView)
-- Parhaat tulokset (TopScoreView)
-- Pelaajanimen valinta (ChoosePlayerView)
-- Pelaajanimen luonti (PlayersView)
-- Pelitilanne (PlayView)
-- Nopanheitto (DiceView)
-- Pisteiden valinta (BoardView)
+- Etusivu [(IndexView)](../src/ui/index_view.py)
+- Parhaat tulokset [(TopScoreView)](../src/ui/top_score_view.py)
+- Pelaajanimen valinta [(ChoosePlayerView)](../src/ui/choose_player.py)
+- Pelaajanimen luonti [(PlayersView)](../src/ui/players_view.py)
+- Pelitilanne [(PlayView)](../src/ui/play_view.py)
+- Nopanheitto [(DiceView)](../src/ui/dice_view.py)
+- Pisteiden valinta [(BoardView)](../src/ui/board_view.py)
 
-Jokainen näkymä on toteutettu omana luokkanaan, joiden nimet on mainittu sulkeissa. Näkymiä näytetään aina yksi kerrallan. Mainittujen lisäksi on olemassa UI-luokka, joka vastaa eri näkymien näyttämisestä ja niihin vaihtamisesta. 
+Jokainen näkymä on toteutettu omana luokkanaan, joiden nimet on mainittu sulkeissa. Näkymiä näytetään aina yksi kerrallan. Mainittujen lisäksi on olemassa `ui`-luokka, joka vastaa eri näkymien näyttämisestä ja niihin vaihtamisesta. 
 
 Näkymiin liittyvät toiminnallisuudet on toteutettu sovelluslogiikan pakkaukseen ja käyttöliittymä onkin kokonaan eriytetty sovelluslogiikasta.
 
 ## Sovelluslogiikka
 
-Sovelluslogiikka toteutetaan siis pakkauksessa _serivces_ ja tarkemmin luokissa nimeltä Board, Dice ja PlayerService. Nimiensä mukaisesti luokat kuvaavat pelaajien, pelilaudan ja noppien toiminnallisuutta. Alle on kuvattu _services_ pakkauksen suhteet muihin pakkauksiin:
+Sovelluslogiikka toteutetaan siis pakkauksessa _services_ ja tarkemmin luokissa nimeltä `Board`, `Dice` ja `PlayerService`. Nimiensä mukaisesti luokat kuvaavat pelaajien, pelilaudan ja noppien toiminnallisuutta. Alle on kuvattu _services_ pakkauksen suhteet muihin pakkauksiin:
 
 ![Pakkausrakenne](./kuvat/arkkitehtuuri_pakkauskaavio.png)
 
 Luokkien käyttöliittymälle tarjoamia metodeja on paljon, ensimmäisten noppin heitosta eri noppayhdistelmien merkitsemiseen taululle. Esimerkkejä luokkien tarjoamista metodeista:
 
-Dice:
+[Dice:](../src/services/dice.py)
 
-- roll_dice(dice)
-- mix_dice(dice, selcted_dice)
+- `roll_dice(dice)`
+- `mix_dice(dice, selected_dice)`
 
-Board:
+[Board:](../src/services/board.py)
 
-- check_numbers(dice_list, number)
-- mark_full_house(new_sum)
+- `check_numbers(dice_list, number)`
+- `mark_full_house(new_sum)`
 
-PlayerService:
+[PlayerService:](../src/services/player_service.py)
 
-- create_player(playername)
-- get_points_of_player(playername)
+- `create_player(playername)`
+- `get_points_of_player(playername)`
 
-PlayerService on siis yhteydessä pelaajiin liittyviin tietoihin  tietojen pysyväistallennuksesta vastaavan, pakkauksessa _repositories_ sijaitsevan, luokan PlayerRepository kautta.
+`PlayerService` on siis yhteydessä pelaajiin liittyviin tietoihin  tietojen pysyväistallennuksesta vastaavan, pakkauksessa _repositories_ sijaitsevan, luokan `PlayerRepository` kautta.
 
 ## Tietojen pysyväistalletus
 
-Pakkauksen _repositories_ luokka PlayerRepository tallentaa tietoja SQLite-tietokantaan, tauluun nimeltä `players`. Tietokantaan talletetaan pelaajanimet ja näihin liittyvät suurimmat pistetulokset. 
-Tietokanta pystytään helposti alustamaan käyttäjän erillisellä komennolla ja tietokannan nimi on konfiguroitavissa ohjelman juuritiedossa sijaitsevassa konfiguraatiotiedostossa.
+Pakkauksen _repositories_ luokka [PlayerRepository](../src/repositories/player_repository.py) tallentaa tietoja SQLite-tietokantaan, tauluun nimeltä `players`. Tietokantaan talletetaan pelaajanimet ja näihin liittyvät suurimmat pistetulokset. 
+Tietokanta pystytään helposti alustamaan käyttäjän erillisellä komennolla ja tietokannan nimi on konfiguroitavissa ohjelman juuritiedossa sijaitsevassa konfiguraatiotiedostossa nimeltä [.env](https://github.com/johyy/ot-harjoitustyo/blob/master/yatzy-app/.env).
 
 ## Päätoiminnallisuudet
 
@@ -83,9 +83,9 @@ Tämän jälkeen pelaaja jatkaa peliä uudella heittokierroksella, jolloin ohjel
 
 Pelaaja kirjottaa nimen siihen tarkoitettuun kohtaan, josta ohjelma sen nappaa. Käyttöliittymä tarkistaa, että nimi on oikean pituinen ja lähettää sen sitten eteenpäin sovelluslogiikalle. 
 
-Sovelluslogiikka tarkistuttaa, ettei nimi ole jo valmiiksi tietokannassa. Mikäli näin ei ole, luodaan Player-olio ja lisätään se tietokantaan.
+Sovelluslogiikka tarkistuttaa, ettei nimi ole jo valmiiksi tietokannassa. Mikäli näin ei ole, luodaan `Player`-olio ja lisätään siihen liittyvä nimi ja pisteet (alussa 0) tietokantaan.
 
-Käyttöliittymä saa palautuksena Player-olion, kun uusi pelaaja on luotu.
+Käyttöliittymä saa palautuksena `Player`-olion, kun uusi pelaaja on luotu.
 
 ### Muut toiminnallisuudet
 
