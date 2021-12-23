@@ -56,7 +56,7 @@ class BoardView:
         self.question = Label(
             self._frame, text="How do you want to use these " + str(self.sum) + " points?")
         self.choose_zero_button = Button(
-            self._frame, text='Choose this if you want to mark a zero', command=self.zero)
+            self._frame, text='Choose this if you want to mark a zero', command=self._zero)
 
         self.list = Listbox(self._frame)
         i = 0
@@ -68,59 +68,59 @@ class BoardView:
 
         if self.new_board.check_numbers(self.rolled_dice, 1):
             self.aces_button = Button(
-                self._frame, text='Aces', command=self.aces)
+                self._frame, text='Aces', command=self._aces)
             self.aces_button.grid()
         if self.new_board.check_numbers(self.rolled_dice, 2):
             self.twos_button = Button(
-                self._frame, text='Twos', command=self.twos)
+                self._frame, text='Twos', command=self._twos)
             self.twos_button.grid()
         if self.new_board.check_numbers(self.rolled_dice, 3):
             self.threes_button = Button(
-                self._frame, text='Threes', command=self.threes)
+                self._frame, text='Threes', command=self._threes)
             self.threes_button.grid()
         if self.new_board.check_numbers(self.rolled_dice, 4):
             self.fours_button = Button(
-                self._frame, text='Fours', command=self.fours)
+                self._frame, text='Fours', command=self._fours)
             self.fours_button.grid()
         if self.new_board.check_numbers(self.rolled_dice, 5):
             self.fives_button = Button(
-                self._frame, text='Fives', command=self.fives)
+                self._frame, text='Fives', command=self._fives)
             self.fives_button.grid()
         if self.new_board.check_numbers(self.rolled_dice, 6):
             self.sixes_button = Button(
-                self._frame, text='Sixes', command=self.sixes)
+                self._frame, text='Sixes', command=self._sixes)
             self.sixes_button.grid()
         if self.new_board.check_three_kind(self.rolled_dice):
             self.three_same_button = Button(
-                self._frame, text='3 of a kind', command=self.three_same)
+                self._frame, text='3 of a kind', command=self._three_same)
             self.three_same_button.grid()
         if self.new_board.check_four_kind(self.rolled_dice):
             self.four_same_button = Button(
-                self._frame, text='4 of a kind', command=self.four_same)
+                self._frame, text='4 of a kind', command=self._four_same)
             self.four_same_button.grid()
         if self.new_board.check_full_house(self.rolled_dice):
             self.full_house_button = Button(
-                self._frame, text='Full House', command=self.full_house)
+                self._frame, text='Full House', command=self._full_house)
             self.full_house_button.grid()
         if self.new_board.check_small_straight(self.rolled_dice):
             self.small_straight_button = Button(
-                self._frame, text='Small Straight', command=self.small_straight)
+                self._frame, text='Small Straight', command=self._small_straight)
             self.small_straight_button.grid()
         if self.new_board.check_large_straight(self.rolled_dice):
             self.large_straight_button = Button(
-                self._frame, text='Large Straight', command=self.large_straight)
+                self._frame, text='Large Straight', command=self._large_straight)
             self.large_straight_button.grid()
         self.chance_button = Button(
-            self._frame, text='Chance', command=self.chance)
+            self._frame, text='Chance', command=self._chance)
         self.chance_button.grid()
         if self.new_board.check_yatzy(self.rolled_dice):
             self.yatzy_button = Button(
-                self._frame, text='Yatzy', command=self.yatzy)
+                self._frame, text='Yatzy', command=self._yatzy)
             self.yatzy_button.grid()
 
         self.choose_zero_button.grid()
 
-    def roll_dice(self):
+    def _roll_dice(self):
 
         if self.new_board.check_if_full() is True:
             totalsum = self.new_board.count_total()
@@ -141,142 +141,142 @@ class BoardView:
             self.handle_play_view(self.player)
             self.board_list.destroy()
 
-    def aces(self):
+    def _aces(self):
         if self.new_board.mark_aces(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have aces")
         else:
-            self.show_table()
+            self._show_table()
 
-    def twos(self):
+    def _twos(self):
         if self.new_board.mark_twos(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have twos")
         else:
-            self.show_table()
+            self._show_table()
 
-    def threes(self):
+    def _threes(self):
         if self.new_board.mark_threes(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have threes")
         else:
-            self.show_table()
+            self._show_table()
 
-    def fours(self):
+    def _fours(self):
         if self.new_board.mark_fours(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have fours")
         else:
-            self.show_table()
+            self._show_table()
 
-    def fives(self):
+    def _fives(self):
         if self.new_board.mark_fives(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have fives")
         else:
-            self.show_table()
+            self._show_table()
 
-    def sixes(self):
+    def _sixes(self):
         if self.new_board.mark_sixes(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have sixes")
         else:
-            self.show_table()
+            self._show_table()
 
-    def three_same(self):
+    def _three_same(self):
         if self.new_board.mark_three_same(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have three of a kind")
         else:
-            self.show_table()
+            self._show_table()
 
-    def four_same(self):
+    def _four_same(self):
         if self.new_board.mark_four_same(self.rolled_dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have four of a kind")
         else:
-            self.show_table()
+            self._show_table()
 
-    def full_house(self):
+    def _full_house(self):
         if self.new_board.mark_full_house(self.sum) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have full house")
         else:
-            self.show_table()
+            self._show_table()
 
-    def small_straight(self):
+    def _small_straight(self):
         num = 15
         if self.new_board.mark_small_straight(num) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have small straight")
         else:
-            self.show_table()
+            self._show_table()
 
-    def large_straight(self):
+    def _large_straight(self):
         num = 20
         if self.new_board.mark_large_straight(num) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have large straight")
         else:
-            self.show_table()
+            self._show_table()
 
-    def chance(self):
+    def _chance(self):
         if self.new_board.mark_chance(self.sum) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have chance")
         else:
-            self.show_table()
+            self._show_table()
 
-    def yatzy(self):
+    def _yatzy(self):
         num = 50
         if self.new_board.mark_yatzy(num) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have yatzy")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero(self):
+    def _zero(self):
         self.zero_aces_button = Button(
-            self._frame, text='Aces', command=self.zero_aces)
+            self._frame, text='Aces', command=self._zero_aces)
         self.zero_aces_button.grid()
         self.zero_twos_button = Button(
-            self._frame, text='Twos', command=self.zero_twos)
+            self._frame, text='Twos', command=self._zero_twos)
         self.zero_twos_button.grid()
         self.zero_threes_button = Button(
-            self._frame, text='Threes', command=self.zero_threes)
+            self._frame, text='Threes', command=self._zero_threes)
         self.zero_threes_button.grid()
         self.zero_fours_button = Button(
-            self._frame, text='Fours', command=self.zero_fours)
+            self._frame, text='Fours', command=self._zero_fours)
         self.zero_fours_button.grid()
         self.zero_fives_button = Button(
-            self._frame, text='Fives', command=self.zero_fives)
+            self._frame, text='Fives', command=self._zero_fives)
         self.zero_fives_button.grid()
         self.zero_sixes_button = Button(
-            self._frame, text='Sixes', command=self.zero_sixes)
+            self._frame, text='Sixes', command=self._zero_sixes)
         self.zero_sixes_button.grid()
         self.zero_three_same_button = Button(
-            self._frame, text='3 of a kind', command=self.zero_three_same)
+            self._frame, text='3 of a kind', command=self._zero_three_same)
         self.zero_three_same_button.grid()
         self.zero_four_same_button = Button(
-            self._frame, text='4 of a kind', command=self.zero_four_same)
+            self._frame, text='4 of a kind', command=self._zero_four_same)
         self.zero_four_same_button.grid()
         self.zero_full_house_button = Button(
-            self._frame, text='Full House', command=self.zero_full_house)
+            self._frame, text='Full House', command=self._zero_full_house)
         self.zero_full_house_button.grid()
         self.zero_small_straight_button = Button(
-            self._frame, text='Small Straight', command=self.zero_small_straight)
+            self._frame, text='Small Straight', command=self._zero_small_straight)
         self.zero_small_straight_button.grid()
         self.zero_large_straight_button = Button(
-            self._frame, text='Large Straight', command=self.zero_large_straight)
+            self._frame, text='Large Straight', command=self._zero_large_straight)
         self.zero_large_straight_button.grid()
         self.zero_chance_button = Button(
-            self._frame, text='Chance', command=self.zero_chance)
+            self._frame, text='Chance', command=self._zero_chance)
         self.zero_chance_button.grid()
         self.zero_yatzy_button = Button(
-            self._frame, text='Yatzy', command=self.zero_yatzy)
+            self._frame, text='Yatzy', command=self._zero_yatzy)
         self.zero_yatzy_button.grid()
 
-    def show_table(self):
+    def _show_table(self):
         self.list.destroy()
         self.question.destroy()
 
@@ -341,109 +341,109 @@ class BoardView:
                 END, '{}: {}'.format(score, table[score]))
         self.board_list.grid()
         self.continue_button = Button(
-            self._frame, text='Continue', command=self.roll_dice)
+            self._frame, text='Continue', command=self._roll_dice)
         self.continue_button.grid()
 
-    def zero_aces(self):
+    def _zero_aces(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_aces(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have aces")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_twos(self):
+    def _zero_twos(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_twos(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have twos")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_threes(self):
+    def _zero_threes(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_threes(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have threes")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_fours(self):
+    def _zero_fours(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_fours(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have fours")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_fives(self):
+    def _zero_fives(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_fives(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have fives")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_sixes(self):
+    def _zero_sixes(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_sixes(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have sixes")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_three_same(self):
+    def _zero_three_same(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_three_same(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have three of a kind")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_four_same(self):
+    def _zero_four_same(self):
         dice = [0, 0, 0, 0, 0]
         if self.new_board.mark_four_same(dice) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have four of a kind")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_full_house(self):
+    def _zero_full_house(self):
         sum = 0
         if self.new_board.mark_full_house(sum) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have full house")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_small_straight(self):
+    def _zero_small_straight(self):
         num = 0
         if self.new_board.mark_small_straight(num) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have small straight")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_large_straight(self):
+    def _zero_large_straight(self):
         num = 0
         if self.new_board.mark_large_straight(num) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have large straight")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_chance(self):
+    def _zero_chance(self):
         sum = 0
         if self.new_board.mark_chance(sum) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have chance")
         else:
-            self.show_table()
+            self._show_table()
 
-    def zero_yatzy(self):
+    def _zero_yatzy(self):
         num = 0
         if self.new_board.mark_yatzy(num) == False:
             messagebox.showinfo("Choose something else",
                                 "You already have yatzy")
         else:
-            self.show_table()
+            self._show_table()

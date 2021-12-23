@@ -12,7 +12,7 @@ class PlayersView:
 
         self._initialize()
 
-    def choose_player_button(self):
+    def _choose_player_button(self):
         self._frame.destroy()
         self._handle_choose_player_view()
 
@@ -24,7 +24,7 @@ class PlayersView:
         player_label.grid(padx=5, pady=5, sticky=constants.W)
         self._player_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
-    def add_player(self):
+    def _add_player(self):
         new_player = self._player_entry.get()
 
         if len(new_player) > 0 and len(new_player) < 21:
@@ -43,8 +43,8 @@ class PlayersView:
         self._initialize_player_field()
 
         add_button = ttk.Button(
-            master=self._frame, text='Add a player', command=self.add_player)
+            master=self._frame, text='Add a player', command=self._add_player)
         add_button.grid()
         player_button = ttk.Button(
-            master=self._frame, text='Return', command=self.choose_player_button)
+            master=self._frame, text='Return', command=self._choose_player_button)
         player_button.grid()

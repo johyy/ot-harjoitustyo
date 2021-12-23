@@ -87,29 +87,29 @@ class DiceView:
             self._frame = Frame(master=self._root)
             self._frame.grid()
         if self.round == 1:
-            self.show_dice(self.new_dice.roll_dice(self.dice))
+            self._show_dice(self.new_dice.roll_dice(self.dice))
         elif self.round == 2:
-            self.mix_dice(self.new_dice.roll_dice(self.new_roll_dice))
+            self._mix_dice(self.new_dice.roll_dice(self.new_roll_dice))
         elif self.round == 3:
-            self.mix_dice(self.new_dice.roll_dice(self.third_roll_die))
+            self._mix_dice(self.new_dice.roll_dice(self.third_roll_die))
 
-    def roll_again(self):
+    def _roll_again(self):
         self.roll_again_button.destroy()
         self._initialize()
 
-    def mix_dice(self, rolled_dice):
+    def _mix_dice(self, rolled_dice):
         if self.round == 2:
-            self.show_second_dice(self.new_dice.mix_dice(
+            self._show_second_dice(self.new_dice.mix_dice(
                 rolled_dice, self.selected_dice))
         elif self.round == 3:
-            self.show_third_dice(self.new_dice.mix_dice(
+            self._show_third_dice(self.new_dice.mix_dice(
                 rolled_dice, self.selected_dice2))
 
-    def show_dice(self, dice):
+    def _show_dice(self, dice):
         self._roll = Label(
             self._frame, text="Choose which dice you want to hold")
         self._roll.grid()
-        self.find_pics(dice)
+        self._find_pics(dice)
 
         self._check1 = Checkbutton(
             self._frame, image=self.die0, variable=self.vars[0])
@@ -137,16 +137,16 @@ class DiceView:
         self.first_dice.append(dice[4])
 
         self.choose_button = Button(
-            self._frame, text='I have chosen!', command=self.var_states)
+            self._frame, text='I have chosen!', command=self._var_states)
         self.choose_button.grid()
 
-    def show_second_dice(self, dice):
+    def _show_second_dice(self, dice):
         if self._roll != None:
             self._roll.destroy()
         elif self.choose_button != None:
             self.choose_button.destroy()
 
-        self.find_pics(dice)
+        self._find_pics(dice)
 
         self._second_roll = Label(
             self._frame, text="Again, choose which dice you want to hold")
@@ -178,10 +178,10 @@ class DiceView:
         self.second_dice.append(dice[4])
 
         self._second_choose_button = Button(
-            self._frame, text='Ready!', command=self.var_states_two)
+            self._frame, text='Ready!', command=self._var_states_two)
         self._second_choose_button.grid()
 
-    def var_states(self):
+    def _var_states(self):
         if self.var1.get() != 0:
             self.selected_dice.append(self.first_dice[0])
         else:
@@ -215,10 +215,10 @@ class DiceView:
         self._check4.destroy()
         self._check5.destroy()
         self.roll_again_button = Button(
-            self._frame, text='Roll again', command=self.roll_again)
+            self._frame, text='Roll again', command=self._roll_again)
         self.roll_again_button.grid()
 
-    def var_states_two(self):
+    def _var_states_two(self):
         if self.var1_2.get() != 0:
             self.selected_dice2.append(self.second_dice[0])
         else:
@@ -253,21 +253,21 @@ class DiceView:
         self._check24.destroy()
         self._check25.destroy()
         self.dice_total_button = Button(
-            self._frame, text='Continue', command=self.roll_again)
+            self._frame, text='Continue', command=self._roll_again)
         self.dice_total_button.grid()
 
-    def show_third_dice(self, dice):
+    def _show_third_dice(self, dice):
         for die in dice:
             self.total_dice.append(die)
-        self.go_to_board()
+        self._go_to_board()
 
-    def go_to_board(self):
+    def _go_to_board(self):
         self._frame.destroy()
         self.dice_total_button.destroy()
         new_sum = self.new_dice.dice_total(self.total_dice)
         self.handle_board_view(self.playername, self.total_dice, new_sum)
 
-    def find_pics(self, dice):
+    def _find_pics(self, dice):
         if dice[0] == 1:
             self.die0 = self.one
         elif dice[0] == 2:

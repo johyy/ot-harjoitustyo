@@ -151,14 +151,14 @@ class IndexView:
 
         self._initialize()
 
-    def yatzybutton(self):
+    def _yatzybutton(self):
         messagebox.showinfo('Yatzyyy', 'Are you ready to play?')
 
-    def playbutton(self):
+    def _playbutton(self):
         self._frame.destroy()
         self._handle_choose_player_view()
 
-    def topscorebutton(self):
+    def _topscorebutton(self):
         self._frame.destroy()
         self._handle_top_score_view()
 
@@ -172,13 +172,13 @@ class IndexView:
         top_score = PhotoImage(file="src/pictures/topscore.png")
 
         yatzy_button = ttk.Button(
-            self._frame, image=yatzypic, command=self.yatzybutton)
+            self._frame, image=yatzypic, command=self._yatzybutton)
         yatzy_button.grid(row=1, column=2)
         play_button = ttk.Button(
-            self._frame, image=play, command=self.playbutton)
+            self._frame, image=play, command=self._playbutton)
         play_button.grid(row=2, column=2)
         top_score_button = ttk.Button(
-            self._frame, image=top_score, command=self.topscorebutton)
+            self._frame, image=top_score, command=self._topscorebutton)
         top_score_button.grid(row=3, column=2)
 
         self._root.mainloop()

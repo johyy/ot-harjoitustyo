@@ -31,9 +31,9 @@ class TopScoreView:
             i += 2
 
         self.get_back_button = Button(
-            self.frame, text='Play!', command=self.play)
+            self.frame, text='Play!', command=self._play)
         self.get_back_button.grid()
 
-    def play(self):
+    def _play(self):
         self.frame.destroy()
         self.handle_choose_player_view()

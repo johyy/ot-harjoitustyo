@@ -11,7 +11,7 @@ class PlayView:
         self.frame = None
         self._initialize()
 
-    def roll_dice(self):
+    def _roll_dice(self):
         self.frame.destroy()
         self.handle_dice_view(self.playername)
 
@@ -20,5 +20,5 @@ class PlayView:
         self.frame = Frame(master=self._root)
         self.frame.grid()
         self.add_button = Button(
-            self.frame, text='ROLL DICE', command=self.roll_dice)
+            self.frame, text='ROLL DICE', command=self._roll_dice)
         self.add_button.grid()

@@ -14,10 +14,7 @@ class ChoosePlayerView:
 
         self._initialize()
 
-    def pack(self):
-        self._frame.pack(fill=constants.X)
-
-    def playbutton(self):
+    def _playbutton(self):
         self.player = self.box.get()
         if self.player:
             messagebox.showinfo(
@@ -28,11 +25,11 @@ class ChoosePlayerView:
             messagebox.showinfo('Stop right now!',
                                 'You have to choose a player name')
 
-    def playersbutton(self):
+    def _playersbutton(self):
         self._frame.destroy()
         self._handle_players_view()
 
-    def names_in_box(self):
+    def _names_in_box(self):
         self.box = ttk.Combobox(self._frame, values=self.list)
         self.box.grid()
 
@@ -42,11 +39,11 @@ class ChoosePlayerView:
         label = ttk.Label(
             self._frame, text="Choose yourself a playername. You can also add a new player!")
         label.grid()
-        self.names_in_box()
+        self._names_in_box()
         players_button = ttk.Button(
-            master=self._frame, text='Add a new player', command=self.playersbutton)
+            master=self._frame, text='Add a new player', command=self._playersbutton)
         play_button = ttk.Button(
-            master=self._frame, text='Play!', command=self.playbutton)
+            master=self._frame, text='Play!', command=self._playbutton)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
         play_button.grid()
