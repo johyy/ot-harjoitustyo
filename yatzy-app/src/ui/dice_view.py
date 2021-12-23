@@ -3,6 +3,8 @@ from services.dice import Dice
 
 
 class DiceView:
+    "Noppien heitosta vastaavan näkymän luokka."
+    
     def __init__(self, root, playername, handle_board_view):
         self._root = root
         self.handle_board_view = handle_board_view

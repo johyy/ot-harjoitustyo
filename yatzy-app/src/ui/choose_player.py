@@ -3,6 +3,8 @@ from services.player_service import player_service
 
 
 class ChoosePlayerView:
+    "Pelaajanimen valinta näkymästä vastaava luokka."
+    
     def __init__(self, root, handle_play_view, handle_players_view):
         self._root = root
         self._handle_play_view = handle_play_view

@@ -5,6 +5,8 @@ from services.player_service import PlayerService
 
 
 class BoardView:
+    "Luokka, joka vastaa pisteiden valinnan ja näytön näkymästä."
+    
     def __init__(self, root, player, rolled_dice, sum, handle_play_view):
         self._root = root
         self.rolled_dice = rolled_dice

@@ -8,6 +8,8 @@ from ui.top_score_view import TopScoreView
 
 
 class UI:
+    """Luokka, joka vastaa kaikista käyttöliittymän näkymistä ja niiden vaihdoista."""
+    
     def __init__(self, root):
         self.root = root
         self._current_view = None

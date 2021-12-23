@@ -5,6 +5,8 @@ import turtle
 
 
 class IndexView:
+    "Etusivun näkymästä vastaava luokka."
+    
     def __init__(self, root, handle_choose_player_view, handle_top_score_view):
         self._root = root
         self._handle_choose_player_view = handle_choose_player_view

@@ -4,6 +4,8 @@ from services.player_service import player_service
 
 
 class TopScoreView:
+    """Parhaiden tulosten näkymästä vastaava luokka."""
+    
     def __init__(self, root, handle_choose_player_view):
         self._root = root
         self.handle_choose_player_view = handle_choose_player_view

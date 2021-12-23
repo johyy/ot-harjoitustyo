@@ -2,6 +2,8 @@ from tkinter import *
 
 
 class PlayView:
+    "Pelinäkymästä vastaava luokka."
+    
     def __init__(self, root, playername, handle_dice_view):
         self._root = root
         self.handle_dice_view = handle_dice_view
